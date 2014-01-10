@@ -13,7 +13,10 @@ tagline: pithorn的个人博客
 ### Personal Tags
 
 `THU学生` `Linuxer`
-
+#### 喜欢
+`钢笔` `电影` `ThinkPad`
+#### 不喜欢
+`苹果公司`
 ## 最近动态
 <ul class="posts">
   {% for post in site.posts %}
