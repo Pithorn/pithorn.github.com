@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "default index"
-description: ""
-category: ""
-tags: []
+layout: page
+title: Jekyll Quick Start 
+tagline: Supporting tagline
+tags : [intro, beginner, jekyll, tutorial]
 ---
 {% include JB/setup %}
 
