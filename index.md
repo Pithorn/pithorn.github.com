@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Jingbei Li
-tagline: 's Homepage
+tagline: Homepage
 ---
 {% include JB/setup %}
 
