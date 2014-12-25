@@ -12,6 +12,8 @@ group: navigation
 ### Links
 
 * [Me@Github.com](https://github.com/petronny)
+* [Me@Facebook.com](https://www.facebook.com/jingbei.li)
+* [Me@Renren.com](http://www.renren.com/364083386)(A clone to Facebook)
 
 ### Contacts
 
