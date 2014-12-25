@@ -2,7 +2,7 @@
 layout: post
 title: "Using astyle to format C/C++ codes"
 description: ""
-category: ""
+category: 
 tags: [astyle,c++]
 ---
 {% include JB/setup %}

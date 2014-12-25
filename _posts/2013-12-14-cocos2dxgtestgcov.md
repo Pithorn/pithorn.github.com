@@ -2,7 +2,7 @@
 layout: post
 title: "Using gtest and gcov in cocos2dx"
 description: ""
-category: ""
+category: 
 tags: [gtest, android, cocos2dx]
 ---
 {% include JB/setup %}
