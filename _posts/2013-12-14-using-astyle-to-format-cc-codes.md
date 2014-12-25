@@ -3,7 +3,7 @@ layout: post
 title: "Using astyle to format C/C++ codes"
 description: ""
 category: ""
-tags: ["astyle","c","c++"]
+tags: [astyle,c++]
 ---
 {% include JB/setup %}
 
