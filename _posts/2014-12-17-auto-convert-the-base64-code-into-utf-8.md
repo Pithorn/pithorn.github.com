@@ -3,7 +3,7 @@ layout: post
 title: "Auto convert the base64 code in Abook"
 description: ""
 category: 
-tags: [abook linux mutt ]
+tags: [abook,linux,mutt,python]
 ---
 
 [Abook](http://abook.sourceforge.net/) is a text-based addressbook program designed to use with [mutt](http://www.mutt.org/) mail client.
@@ -23,7 +23,9 @@ To convert the base64 string and automatically fit the correct encoding, you can
 	conv() {
 		eval `echo $1 | awk -F '?' '{ print "echo " $4 " | base64 -d | iconv -f " $2 }'`
 	}
-  
+
+Then:
+
 	$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=
 
 Or a python script like this:
