@@ -16,18 +16,17 @@ If you want to use __Abook__ instead of aliases, remove the aliases configuratio
 	macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 	bind editor        <Tab> complete-query
 
-But sadly, the command `abook --add-email-quiet` always gets a string like "=?utf-8?B?55m+5ZCI5LuZ5a2Q?=" which is a base64 encoded string.
+But sadly, the command `abook --add-email-quiet` always gets names like "=?utf-8?B?55m+5ZCI5LuZ5a2Q?=" which is base64 encoded.
 
-To convert the base64 code and automatically fits the correct encoding, you can use a shell function:
+To convert the base64 string and automatically fit the correct encoding, you can use a shell function:
 
 	conv() {
 		eval `echo $1 | awk -F '?' '{ print "echo " $4 " | base64 -d | iconv -f " $2 }'`
 	}
-    
-
+  
 	$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=
 
-Or a python sscript like this:
+Or a python script like this:
 
 	#!/usr/bin/env python2
 	# -*- coding: utf-8 -*-
