@@ -23,3 +23,10 @@ Here is a tutorial for running QQDownload 4.8 Beta using wine:
 4. Then install `riched20`, `riched30` and `wininet` to your wineprefix using `winetricks` GUI.
 5. Finally you need a Chinese font for all charactors. The `fakeChinese` in `winetricks` is a good choice.
 6. Have fun! You may need a desktop launcher.
+
+### PS
+
+if you have permission to use the [Tencent offline downloading](http://lixian.qq.com/login.html), 
+such as VIP account or gained LV8 in QQDownload, I recommend you to try out another python script, [xfdown](https://github.com/kikyous/xfdown).
+
+Xfdown now has a awesome Tui with color support, wow.
