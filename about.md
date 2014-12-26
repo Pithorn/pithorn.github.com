@@ -8,6 +8,7 @@ group: navigation
 #Jingbei Li
 
 * A senior student at Department Of Computer Science, Tsinghua University.
+* A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo)
 
 ### Links
 
