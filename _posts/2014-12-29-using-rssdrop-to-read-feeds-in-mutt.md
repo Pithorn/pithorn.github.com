@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using rssdrop to read feeds in Mutt"
+title: "Using rssdrop to receive and read feeds in Mutt"
 description: ""
 category: 
 tags: [mutt, linux, rssdrop]
@@ -52,7 +52,7 @@ It's not quite human readable so you need a `html2txt` script to convert it.
 
 ### html2txt
 
-Refer to [this blog](http://stromberg.dnsalias.org/~strombrg/mutt-html.html), `links` is a good choice because of its numbered links feature. I changed it to `elinks` for Chinese supporting. Make sure it's executable, and on your $PATH.
+Refer to [this blog](http://stromberg.dnsalias.org/~strombrg/mutt-html.html), `links` is a good choice because of its numbered links feature. I changed it to `elinks` for Chinese supporting. Make sure it's executable, and on your `$PATH`.
 
 Here is an example of `html2txt`:
 
