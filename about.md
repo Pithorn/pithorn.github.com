@@ -8,7 +8,8 @@ group: navigation
 #Jingbei Li
 
 * A senior student at Department Of Computer Science, Tsinghua University.
-* A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo)
+* A intern student at the laboratory of Pattern recognition, Institute of Automation, Chinese Academy of Sciences.
+* A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo).
 
 ### Links
 
@@ -29,6 +30,5 @@ group: navigation
 * +86-13389921221
 
 #### Address
-Department Of Computer Science, J12  
-Tsinghua University, Beijing, China  
-100084
+
+* J12, Department Of Computer Science, Tsinghua University, Beijing China, 100084
