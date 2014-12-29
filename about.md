@@ -31,4 +31,4 @@ group: navigation
 
 #### Address
 
-* J12, Department Of Computer Science, Tsinghua University, Beijing China, 100084
+* 2#611A, Zijing Dormitory, Tsinghua University, Beijing China, 100084
