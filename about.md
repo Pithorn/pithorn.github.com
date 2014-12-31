@@ -22,6 +22,7 @@ group: navigation
 #### Emails
 
 * [jingbei.li@yahoo.com](mailto:jingbei.li@yahoo.com)
+* [jingbei.li@ia.ac.cn](mailto:jingbei.li@ia.ac.cn)
 * [petron@archlinuxcn.org](mailto:petron@archlinuxcn.org)
 * [ljb11@mails.tsinghua.edu.cn](mailto:ljb11@mails.tsinghua.edu.cn)
 
