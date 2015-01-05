@@ -7,7 +7,7 @@ tags: [wine,linux]
 ---
 {% include JB/setup %}
 
-[QQDownload](http://xf.qq.com/index.html)(which means "QQ tornado") is a download manager and bittorrent client developed by Tencent Holdings Ltd.
+[QQDownload](http://xf.qq.com/index.html)(QQ旋风, which means "QQ tornado") is a download manager and bittorrent client developed by Tencent Holdings Ltd.
 
 Comparing with its main competitor, Xunlei, QQDownload is more easier to handle by wine.
 
