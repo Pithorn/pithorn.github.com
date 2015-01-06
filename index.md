@@ -5,25 +5,21 @@ tagline: Welcome!
 ---
 {% include JB/setup %}
 
-### 定场诗一首
+# 定场诗一首
 
 	世人笑我太疯癫，我笑别人看不穿。
 	不见五陵豪杰墓，无花无酒锄作田。
 
-### Recent Posts
+# Recent Posts
 
 <div class="container">
 <div class="posts">
-    {% for post in site.posts limit 4 %}
-    <div class="post">
-    	<h4>
-    		<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-    		{{ post.date | date_to_string }}
-    	</h4>
-        {{ post.content | strip_html | truncatewords:15 }}<br>
-    	<h5>
-            <a href="{{ post.url }}">Read more...</a><br><br>
-	</h5>
+	{% for post in site.posts limit 4 %}
+	<div class="post">
+		<h2>{{ post.title }}</h2>
+		<h4>{{ post.date | date_to_string }}</h4>
+		<p>{{ post.content | strip_html | truncatewords:80 }}</p>
+		<a href="{{ post.url }}"><button class="btn btn-default">Read more</button></a>
 	</div>
     {% endfor %}
 </div>
@@ -37,7 +33,7 @@ tagline: Welcome!
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
 <script type="text/javascript" src="//7sbplw.com1.z0.glb.clouddn.com/github-activity-0.1.0.min.js"></script>
 
-### Recent Activity on Github.com
+# Recent Activity on Github
 
 <div id="feed"></div>
 
