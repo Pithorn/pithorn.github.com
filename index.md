@@ -12,20 +12,22 @@ tagline: Welcome!
 
 ### Recent Posts
 
-<ul >
+<div class="container">
+<div class="posts">
     {% for post in site.posts limit 4 %}
-    <li>
+    <div class="post">
     	<h4>
     		<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
     		{{ post.date | date_to_string }}
     	</h4>
-    </li>
         {{ post.content | strip_html | truncatewords:15 }}<br>
     	<h5>
             <a href="{{ post.url }}">Read more...</a><br><br>
 	</h5>
+	</div>
     {% endfor %}
-</ul>
+</div>
+</div>
 
 
 <!--Github Activity-->
