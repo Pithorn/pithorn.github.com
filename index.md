@@ -22,7 +22,7 @@ tagline: Homepage
     </li>
         {{ post.content | strip_html | truncatewords:15 }}<br>
     	<h5>
-            <a href="{{ post.url }}">Read more...</a><br><br>
+x            <a href="{{ post.url }}">Read more...</a><br><br>
 	</h5>
     {% endfor %}
 </ul>
