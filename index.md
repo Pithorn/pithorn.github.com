@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Jingbei Li
-tagline: Homepage
+title: Jingbei Li's Blog
+tagline: Welcome!
 ---
 {% include JB/setup %}
 
