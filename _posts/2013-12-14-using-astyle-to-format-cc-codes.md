@@ -52,6 +52,5 @@ void HeroBazzi::createhero(CCPoint a,float scale,int id,int type)
 	sprite->runAction(animate);
 	action=NULL;
 }
-{% endhighlight %}
-
 #endif
+{% endhighlight %}
