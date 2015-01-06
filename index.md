@@ -21,19 +21,16 @@ tagline: Homepage
     	</h4>
     </li>
         {{ post.content | strip_html | truncatewords:15 }}<br>
-    	<h5>
-            <a href="{{ post.url }}">Read more...</a><br><br>
-	</h5>
     {% endfor %}
 </ul>
 
 
 <!--Github Activity-->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-<link rel="stylesheet" href="/assets/github-activity/github-activity-0.1.0.min.css">
+<link rel="stylesheet" href="//7sbplw.com1.z0.glb.clouddn.com/github-activity-0.1.0.min.css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-<script type="text/javascript" src="/assets/github-activity/github-activity-0.1.0.min.js"></script>
+<script type="text/javascript" src="//7sbplw.com1.z0.glb.clouddn.com/github-activity-0.1.0.min.js"></script>
 
 ### Recent Activity on Github.com
 
