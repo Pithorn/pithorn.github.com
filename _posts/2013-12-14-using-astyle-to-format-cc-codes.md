@@ -10,7 +10,7 @@ tags: [astyle,c++]
 	astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej
 
 Here is a preview.
-{% highlight javascript %}
+{% highlight cpp %}
 #ifndef __Hero_Bazzi__
 #define __Hero_Bazzi__
 #include "cocos2d.h"
