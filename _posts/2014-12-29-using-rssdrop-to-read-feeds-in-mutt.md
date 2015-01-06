@@ -56,18 +56,20 @@ Refer to [this blog](http://stromberg.dnsalias.org/~strombrg/mutt-html.html), `l
 
 Here is an example of `html2txt`:
 
-	#!/bin/sh
-	# for mutt to view html e-mails
-	
-	elinks -dump "file://$@"
-	
-	#or
-	#
-	#lynx -force_html -dump "$@"
-	#
-	#or
-	#
-	#w3m -T text/html -F -dump "$@"
+{% highlight sh %}
+#!/bin/sh
+# for mutt to view html e-mails
+
+elinks -dump "file://$@"
+
+#or
+#
+#lynx -force_html -dump "$@"
+#
+#or
+#
+#w3m -T text/html -F -dump "$@"
+{% endhighlight %}
 
 You also need a `~/.mailcap`:
 

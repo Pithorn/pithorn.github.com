@@ -20,9 +20,11 @@ But sadly, the command `abook --add-email-quiet` always gets names like "=?utf-8
 
 To convert the base64 string and automatically fit the correct encoding, you can use a shell function:
 
-	conv() {
-		eval `echo $1 | awk -F '?' '{ print "echo " $4 " | base64 -d | iconv -f " $2 }'`
-	}
+{% highlight sh %}
+conv() {
+	eval `echo $1 | awk -F '?' '{ print "echo " $4 " | base64 -d | iconv -f " $2 }'`
+}
+{% endhighlight %}
 
 Then:
 
@@ -30,31 +32,33 @@ Then:
 
 Or a python script like this:
 
-	#!/usr/bin/env python2
-	# -*- coding: utf-8 -*-
-	import email
-	import email.header
-	import sys
-	import re
+{% highlight cython %}
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+import email
+import email.header
+import sys
+import re
 
-	def abookdecode(origin_name):
-	    name=email.Header.decode_header(origin_name)
-		if name[0][1] is None:
-		    return name[0][0]
-		else:
-		    return name[0][0].decode(name[0][1]).encode('utf-8')
+def abookdecode(origin_name):
+    name=email.Header.decode_header(origin_name)
+	if name[0][1] is None:
+	    return name[0][0]
+	else:
+	    return name[0][0].decode(name[0][1]).encode('utf-8')
 
-	    if '__main__'==__name__:
-		infile=open(sys.argv[1],"r")
-	    content=infile.readlines()
-	    infile.close()
-	    outfile=open(sys.argv[1],"wb")
-		for line in content:
-		if line[0:4]=='name':
-		    outfile.write(line[0:5]+abookdecode(line[5:-1])+'\n')
-		    else:
-			outfile.write(line)
-	    outfile.close()
+    if '__main__'==__name__:
+	infile=open(sys.argv[1],"r")
+    content=infile.readlines()
+    infile.close()
+    outfile=open(sys.argv[1],"wb")
+	for line in content:
+	if line[0:4]=='name':
+	    outfile.write(line[0:5]+abookdecode(line[5:-1])+'\n')
+	    else:
+		outfile.write(line)
+    outfile.close()
+{% endhighlight %}
 
 And then change your `.muttrc` to call the script:
 
