@@ -45,3 +45,5 @@ GitHubActivity.feed({
 	limit: 5 // optional
 });
 </script>
+
+# Comments
