@@ -3,7 +3,7 @@ layout: post
 title: "A colorful byobu script to notify your new mails and feeds"
 description: ""
 category: 
-tags: [linux,byobu]
+tags: [linux,byobu,rssdrop]
 ---
 {% include JB/setup %}
 
