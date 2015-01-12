@@ -3,7 +3,7 @@ layout: post
 title: "Showing colors in the Byobu custom scripts"
 description: ""
 category: 
-tags: [linux,byobu,tmux]
+tags: [linux,byobu,tmux,script]
 ---
 {% include JB/setup %}
 [Byobu](byobu.co) is a frontend for screen or tmux.

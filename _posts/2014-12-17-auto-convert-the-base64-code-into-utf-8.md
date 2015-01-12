@@ -3,7 +3,7 @@ layout: post
 title: "Auto convert the base64 code in Abook"
 description: ""
 category: 
-tags: [abook,linux,mutt,python]
+tags: [abook,linux,mutt,python,script]
 ---
 
 [Abook](http://abook.sourceforge.net/) is a text-based addressbook program designed to use with [mutt](http://www.mutt.org/) mail client.
