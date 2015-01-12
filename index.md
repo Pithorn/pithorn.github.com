@@ -18,12 +18,12 @@ tagline: Welcome!
 
 
 <ul class="posts">
-	{% for post in site.posts limit 4 %}
+	{% for post in site.posts limit:3 %}
 		<div class="post">
 			<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 			<h4>{{ post.date | date_to_string }}</h4>
 			<p>{{ post.content }}</p>
-			<a href="{{ post.url }}"><button class="btn btn-default">Read more</button></a>
+			<button class="btn"><a href="{{ post.url }}">Read more</a></button>
 		</div>
 	{% endfor %}
 </ul>
@@ -36,8 +36,6 @@ tagline: Welcome!
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
 <script type="text/javascript" src="//7sbplw.com1.z0.glb.clouddn.com/github-activity-0.1.0.min.js"></script>
-
-<a id="github-activity"></a>
 
 # Recent Activity on Github
 
