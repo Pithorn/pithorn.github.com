@@ -13,7 +13,7 @@ Byobu supports custom script and display the outputs in the bottom bar. And part
 
 ![img](http://7sbplw.com1.z0.glb.clouddn.com/screenshot-20150109_155440.png)
 
-Here is my notification script at `~/.byobu/bin/5_mail`. 5 means checking every 5 seconds. Byobu will force all the scripts which period are shorter than 5 seconds to run as 5.
+Here is my notification script at `~/.byobu/bin/5_mail`. 5 means checking every 5 seconds. Byobu will force all the scripts those period is shorter than 5 seconds to run as 5.
 
 {% highlight sh%}
 #!/bin/sh -e
