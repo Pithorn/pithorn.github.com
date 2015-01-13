@@ -3,7 +3,7 @@ layout: post
 title: "A simple script to check your ruby library version"
 description: ""
 category: 
-tags: [linux,ruby,shell]
+tags: [linux,ruby,script]
 ---
 {% include JB/setup %}
 
