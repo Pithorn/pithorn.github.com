@@ -320,7 +320,7 @@ footer {
   width:170px;
   float:left;
   position:fixed;
-  bottom:10px;
+  bottom:0px;
 	padding-left: 50px;
 }
 
