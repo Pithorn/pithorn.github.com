@@ -42,5 +42,5 @@ do
 		echo "$COLOR_SET""[$i]""$COLOR_RESTORE"
 	fi
 done
-{% endhighlight%}
+{% endhighlight %}
 
