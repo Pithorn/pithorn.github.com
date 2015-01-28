@@ -20,10 +20,7 @@ title: About
 
 #### Emails
 
-* [jingbei.li@yahoo.com](mailto:jingbei.li@yahoo.com)
-* [jingbei.li@nlpr.ia.ac.cn](mailto:jingbei.li@nlpr.ia.ac.cn)
-* [petron@archlinuxcn.org](mailto:petron@archlinuxcn.org)
-* [ljb11@mails.tsinghua.edu.cn](mailto:ljb11@mails.tsinghua.edu.cn)
+* [i@jingbei.li](mailto:i@jingbei.li)
 
 #### Phone number
 
