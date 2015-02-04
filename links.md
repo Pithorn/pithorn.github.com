@@ -11,7 +11,8 @@ A Flappy Bird Game reimplement written in Cocos-html5.
 The source can be found at [https://github.com/petronny/flappybird](https://github.com/petronny/flappybird)
 
 ## URL Shortener
-[http://url.jingbei.li](http://url.jingbei.li/)
+[http://pturl.tk](http://pturl.tk) or 
+[http://url.jingbei.li](http://url.jingbei.li)
 
 My own url shortener.  
-Actually it's made of [YOURLS](https://github.com/YOURLS/YOURLS).
+Actually they are made of [YOURLS](https://github.com/YOURLS/YOURLS).
