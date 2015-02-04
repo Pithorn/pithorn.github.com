@@ -27,3 +27,7 @@ RewriteRule /(.*).html /$1.html [L]
 RewriteRule /(.*).php /$1.php [L]
 RewriteRule /.+ /yourls-loader.php [L]
 {% endhiglight %}
+
+#### PS
+
+I've also resigned another domain, [pturl.tk](http://pturl.tk/). It does the same things that url.jingbei.li does, but much shorter. :)
