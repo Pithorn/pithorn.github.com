@@ -14,7 +14,7 @@ The reason is the Windows server I used is a IIS server not IIS7 server, the rew
 
 And `REQUEST_FILENAME` does not check the local files because is relative. The solution is write all the file names and directory name manually in `httpd.ini`. It is a little silly, but works.
 
-{% hightlight dosini %}
+{% highlight dosini %}
 [ISAPI_Rewrite]
 RewriteRule /admin(.*) /admin$1 [L]
 RewriteRule /css(.*) /css$1 [L]
