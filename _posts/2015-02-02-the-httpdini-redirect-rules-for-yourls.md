@@ -26,7 +26,7 @@ RewriteRule /user(.*) /user$1 [L]
 RewriteRule /(.*).html /$1.html [L]
 RewriteRule /(.*).php /$1.php [L]
 RewriteRule /.+ /yourls-loader.php [L]
-{% endhiglight %}
+{% endhighlight %}
 
 #### PS
 
