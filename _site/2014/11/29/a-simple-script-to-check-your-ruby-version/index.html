@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="author" content="Jingbei Li" />
+    <title>A simple script to check your ruby library version</title>
+
+    <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
+    <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
+    <script src="/assets/themes/dinky/js/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header"><a href="/">Jingbei Li's Blog</a></h1>
+        <p class="header">Welcome!</p>
+        <ul>
+          
+          
+          
+
+
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/index.html">Homepage</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/timeline.html">Timeline</a></li>
+      	
+      
+    
+  
+
+
+
+	  <li><a href="/about.html" rel="me">About me</a></li>
+        </ul>
+	<!--<h4>Quick Links</h4>
+        <ul>
+	  <li><a href="/index.html#recent-posts" rel="me">Recent Posts</a></li>
+	  <li><a href="/index.html#github-activity" rel="me">Github Activity</a></li>
+	  <li><a href="/index.html#recent-comments" rel="me">Recent Comments</a></li>
+        </ul>-->
+        <ul>
+	  <li><a href="/links.html">Other links</a></li>
+        </ul>
+        <ul>
+	  <li><a href="/rss.xml">RSS</a>/<a href="/atom.xml">Atom</a></li>
+        </ul>
+        
+        
+        <div class="misc vcard">
+	  <!--<h4>About</h4>-->
+          <ul>
+            
+            <!--<li class="contact"><address><span class="author fn n">Jingbei Li</span> - <span class="fn email">jingbei.li@yahoo.com</span></address></li>-->
+            
+            
+            <!--<li class="github"><a href="http://github.com/petronny/" rel="me">github.com/petronny</a></li>-->
+            
+            
+            <!--<li class="twitter"><a href="http://twitter.com/jingbei_li/" rel="me">twitter.com/jingbei_li</a></li>-->
+            
+            
+            
+            
+            
+          </ul>
+        </div><!-- misc -->
+        
+      </header>
+
+      <section>
+      
+<section>
+  <h1>A simple script to check your ruby library version</h1>
+
+  <h4>29 November 2014</h4>
+
+
+  
+<p>Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added <code>~/.gem/ruby/2.1.0/bin</code> to <code>$PATH</code>.</p>
+
+<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.</p>
+
+<p>Refer to this <a href="http://forum.ubuntu.com.cn/viewtopic.php?f=48&amp;t=466400">post</a>, the output of <code>ruby -e 'puts $LOAD_PATH'</code> includes what I need.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">/usr/lib/ruby/site_ruby/2.2.0
+/usr/lib/ruby/site_ruby/2.2.0/x86_64-linux
+/usr/lib/ruby/site_ruby
+/usr/lib/ruby/vendor_ruby/2.2.0
+/usr/lib/ruby/vendor_ruby/2.2.0/x86_64-linux
+/usr/lib/ruby/vendor_ruby
+/usr/lib/ruby/2.2.0
+/usr/lib/ruby/2.2.0/x86_64-linux</code></pre></div>
+
+<p>Then use <code>sed</code> and <code>grep</code> to find it out.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ruby -e <span class="s1">&#39;puts $LOAD_PATH&#39;</span> <span class="p">|</span> sed <span class="s2">&quot;s/\/usr\/lib\/ruby\///g&quot;</span> <span class="p">|</span>grep <span class="s1">&#39;^[0-9\.]*$&#39;</span></code></pre></div>
+
+<p>Finally I added the following line to <code>.zshrc</code> and it works fine.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">ruby_version</span><span class="o">=</span><span class="sb">`</span>ruby -e <span class="s1">&#39;puts $LOAD_PATH&#39;</span> <span class="p">|</span> sed <span class="s2">&quot;s/\/usr\/lib\/ruby\///g&quot;</span> <span class="p">|</span>grep <span class="s1">&#39;^[0-9\.]*$&#39;</span><span class="sb">`</span>
+<span class="nv">path</span><span class="o">=(</span><span class="nv">$path</span> ~/.gem/ruby/<span class="nv">$ruby_version</span>/bin<span class="o">)</span></code></pre></div>
+
+<p>BTW, this script can also be used in the PKGBUILD of ruby gem packages.</p>
+
+
+  
+    <ul class="tag_box inline">
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#linux-ref">linux <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#script-ref">script <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jingbei'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</section>
+
+
+      </section>
+
+      <footer>
+	<script src="//static.getclicky.com/js" type="text/javascript"></script>
+	<script type="text/javascript">try{ clicky.init(100811122); }catch(e){}</script>
+	<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100811122ns.gif" /></p></noscript>
+	<style type="text/css"> 
+		#outerdiv 
+		{ 
+			width:150px; 
+			height:145px; 
+			overflow:hidden; 
+			position:relative; 
+		} 
+		#inneriframe 
+		{ 
+			position:absolute; 
+			top:-24px; 
+			left:-5px; 
+			width:150; 
+			height:170; 
+		} 
+	</style> 
+	<div id='outerdiv'> 
+		<iframe id='inneriframe' frameborder=0 scrolling=no width=160 height=170 src='//widgets.clicky.com/tally/iframe?site_id=100811122&sitekey=f1e4ee97d7209bdfe74c0ce79738c86c&hide_title=1&hide_branding=1&'></iframe>
+	</div>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
+
