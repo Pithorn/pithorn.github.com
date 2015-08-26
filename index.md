@@ -7,11 +7,6 @@ tagline: Welcome!
 ---
 {% include JB/setup %}
 
-# 定场诗一首
-
-	世人笑我太疯癫，我笑别人看不穿。
-	不见五陵豪杰墓，无花无酒锄作田。
-
 <a id="recent-posts"></a>
 
 # Recent Posts
