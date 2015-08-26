@@ -4,13 +4,116 @@
  <title>Jingbei Li's Blog</title>
  <link href="http://jingbei.li/" rel="self"/>
  <link href="http://jingbei.li"/>
- <updated>2015-08-20T14:49:29+08:00</updated>
+ <updated>2015-08-26T17:43:43+08:00</updated>
  <id>http://jingbei.li</id>
  <author>
    <name>Jingbei Li</name>
    <email>jingbei.li@yahoo.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Openwrt 15.05rc1 HG255D的ipv6支持</title>
+   <link href="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt"/>
+   <updated>2015-08-26T00:00:00+08:00</updated>
+   <id>http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt</id>
+   <content type="html">
+&lt;p&gt;感谢&lt;a href=&quot;blog.rjjacky.info&quot;&gt;rjjacky&lt;/a&gt;把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;首先是蛋疼的固件&lt;/h3&gt;
+
+&lt;p&gt;openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。&lt;/p&gt;
+
+&lt;p&gt;openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了&lt;code&gt;make menuconfig&lt;/code&gt;以外还有很多隐藏的地方要改。
+经过几次编译，没有一次flash进去能用的。。。放弃。。&lt;/p&gt;
+
+&lt;p&gt;后来从&lt;a href=&quot;http://www.right.com.cn/Forum/thread-167159-1-1.html&quot;&gt;此处&lt;/a&gt;下载了一个15.05-rc1带部分ipv6的固件，总算刷进去了。&lt;/p&gt;
+
+&lt;p&gt;这个固件还算不错，wan和wan6直接就获取到ipv6地址了，lan内部能获取到一个由dhcpv6分配的有奇怪prefix的ipv6地址。&lt;/p&gt;
+
+&lt;p&gt;不过没有意义，lan内的机器还是访问不了ipv6的外网。&lt;/p&gt;
+
+&lt;p&gt;于是，我的第一反应：&lt;/p&gt;
+
+&lt;h3 id=&quot;ipv6nat&quot;&gt;做个ipv6的nat&lt;/h3&gt;
+
+&lt;h4 id=&quot;part1&quot;&gt;part1&lt;/h4&gt;
+
+&lt;p&gt;参见&lt;a href=&quot;http://www.7forz.com/2555/&quot;&gt;这篇blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;opkg装kmod-ip6tables，kmod-ipt-nat6。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;装的时候的小插曲：源里面有个链接失效了，注释掉吧先。。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;然后运行 &lt;code&gt;ip6tables -t nat -L&lt;/code&gt; 检测一下。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不过他之后这句&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在开机启动脚本上添加ifconfig br-lan xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/64&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;看起来有点不雅。。&lt;/p&gt;
+
+&lt;h4 id=&quot;part2&quot;&gt;part2&lt;/h4&gt;
+
+&lt;p&gt;于是我想到了之前看到的知乎上的&lt;a href=&quot;http://www.zhihu.com/question/29667477/answer/47149165&quot;&gt;这个问题&lt;/a&gt;的第一个回答，可以把wan获取到的ipv6地址弄到lan上去。&lt;/p&gt;
+
+&lt;p&gt;所以下一步的配置是&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在LuCI界面删除LAN-ipv6配置下的Global ULA-Prefix里面的数值&lt;/li&gt;
+  &lt;li&gt;修改/etc/config/dhcp的对应片段如下，请用脑子改&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;config dhcp &lt;span class=&quot;s1&quot;&gt;&amp;#39;lan&amp;#39;&lt;/span&gt;
+	option interface &lt;span class=&quot;s1&quot;&gt;&amp;#39;lan&amp;#39;&lt;/span&gt;
+	option start &lt;span class=&quot;s1&quot;&gt;&amp;#39;100&amp;#39;&lt;/span&gt;
+	option limit &lt;span class=&quot;s1&quot;&gt;&amp;#39;150&amp;#39;&lt;/span&gt;
+	option leasetime &lt;span class=&quot;s1&quot;&gt;&amp;#39;12h&amp;#39;&lt;/span&gt;
+	option ra &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option dhcpv6 &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option ndp &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option ra_management &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
+config dhcp &lt;span class=&quot;s1&quot;&gt;&amp;#39;wan6&amp;#39;&lt;/span&gt;
+	option interface &lt;span class=&quot;s1&quot;&gt;&amp;#39;wan&amp;#39;&lt;/span&gt;
+	option dhcpv6 &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option ra &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option ndp &lt;span class=&quot;s1&quot;&gt;&amp;#39;hybrid&amp;#39;&lt;/span&gt;
+	option master &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;确保odhcpd是处于开机启动状态&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果现在重启，正常的情况应该是，LAN会获得wan处的ipv6地址（同为2001开头），然后LAN下面的设备各自获得自己的ipv6地址。
+这样连radvd也不用管了～&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;part3&quot;&gt;part3&lt;/h4&gt;
+
+&lt;p&gt;好现在回到part1的那篇blog，做最后一步：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在 /etc/firewall.user 中加入&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;
+ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其中的IP是LAN的前4段
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reboot and enjoy～&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>《星杯传说 破晓》的人物技能平衡调整</title>

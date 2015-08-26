@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="author" content="Jingbei Li" />
-    <title>Timeline</title>
+    <title>Openwrt 15.05rc1 HG255D的ipv6支持</title>
 
     <link rel="stylesheet" href="/assets/themes/dinky/css/styles.css">
     <link rel="stylesheet" href="/assets/themes/dinky/css/pygment_trac.css">
@@ -76,7 +76,7 @@
     
       
       	
-      	<li class="active"><a href="/timeline.html" class="active">Timeline</a></li>
+      	<li><a href="/timeline.html">Timeline</a></li>
       	
       
     
@@ -124,241 +124,126 @@
       <section>
       
 <section>
-  <h1>Timeline</h1>
+  <h1>Openwrt 15.05rc1 HG255D的ipv6支持</h1>
 
-  
-
-
-
+  <h4>26 August 2015</h4>
 
 
   
-    
-    
-    
-    
+<p>感谢<a href="blog.rjjacky.info">rjjacky</a>把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。</p>
+
+<h3 id="section">首先是蛋疼的固件</h3>
+
+<p>openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。</p>
+
+<p>openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了<code>make menuconfig</code>以外还有很多隐藏的地方要改。
+经过几次编译，没有一次flash进去能用的。。。放弃。。</p>
+
+<p>后来从<a href="http://www.right.com.cn/Forum/thread-167159-1-1.html">此处</a>下载了一个15.05-rc1带部分ipv6的固件，总算刷进去了。</p>
+
+<p>这个固件还算不错，wan和wan6直接就获取到ipv6地址了，lan内部能获取到一个由dhcpv6分配的有奇怪prefix的ipv6地址。</p>
+
+<p>不过没有意义，lan内的机器还是访问不了ipv6的外网。</p>
+
+<p>于是，我的第一反应：</p>
+
+<h3 id="ipv6nat">做个ipv6的nat</h3>
+
+<h4 id="part1">part1</h4>
+
+<p>参见<a href="http://www.7forz.com/2555/">这篇blog</a></p>
+
+<ul>
+  <li>opkg装kmod-ip6tables，kmod-ipt-nat6。</li>
+</ul>
+
+<blockquote>
+  <p>装的时候的小插曲：源里面有个链接失效了，注释掉吧先。。</p>
+</blockquote>
+
+<ul>
+  <li>然后运行 <code>ip6tables -t nat -L</code> 检测一下。</li>
+</ul>
+
+<p>不过他之后这句</p>
+
+<blockquote>
+  <p>在开机启动脚本上添加ifconfig br-lan xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/64</p>
+</blockquote>
+
+<p>看起来有点不雅。。</p>
+
+<h4 id="part2">part2</h4>
+
+<p>于是我想到了之前看到的知乎上的<a href="http://www.zhihu.com/question/29667477/answer/47149165">这个问题</a>的第一个回答，可以把wan获取到的ipv6地址弄到lan上去。</p>
+
+<p>所以下一步的配置是</p>
+
+<ul>
+  <li>在LuCI界面删除LAN-ipv6配置下的Global ULA-Prefix里面的数值</li>
+  <li>修改/etc/config/dhcp的对应片段如下，请用脑子改</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">config dhcp <span class="s1">&#39;lan&#39;</span>
+	option interface <span class="s1">&#39;lan&#39;</span>
+	option start <span class="s1">&#39;100&#39;</span>
+	option limit <span class="s1">&#39;150&#39;</span>
+	option leasetime <span class="s1">&#39;12h&#39;</span>
+	option ra <span class="s1">&#39;hybrid&#39;</span>
+	option dhcpv6 <span class="s1">&#39;hybrid&#39;</span>
+	option ndp <span class="s1">&#39;hybrid&#39;</span>
+	option ra_management <span class="s1">&#39;1&#39;</span>
+config dhcp <span class="s1">&#39;wan6&#39;</span>
+	option interface <span class="s1">&#39;wan&#39;</span>
+	option dhcpv6 <span class="s1">&#39;hybrid&#39;</span>
+	option ra <span class="s1">&#39;hybrid&#39;</span>
+	option ndp <span class="s1">&#39;hybrid&#39;</span>
+	option master <span class="s1">&#39;1&#39;</span></code></pre></div>
+
+<ul>
+  <li>确保odhcpd是处于开机启动状态</li>
+</ul>
+
+<blockquote>
+  <p>如果现在重启，正常的情况应该是，LAN会获得wan处的ipv6地址（同为2001开头），然后LAN下面的设备各自获得自己的ipv6地址。
+这样连radvd也不用管了～</p>
+</blockquote>
+
+<h4 id="part3">part3</h4>
+
+<p>好现在回到part1的那篇blog，做最后一步：</p>
+
+<ul>
+  <li>在 /etc/firewall.user 中加入</li>
+</ul>
+
+<p><code>
+ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其中的IP是LAN的前4段
+</code></p>
+
+<ul>
+  <li>Reboot and enjoy～</li>
+</ul>
+
+
   
-    
-      <h2>2015</h2>
-      <h3>August</h3>
-      <ul>
-    
-  
-    <li><span>August 26, 2015</span> &raquo; <a href="/2015/08/26/enable-ipv6-nat-in-openwrt">Openwrt 15.05rc1 HG255D的ipv6支持</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>July</h3>
-          <ul>
-        
+    <ul class="tag_box inline">
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 30, 2015</span> &raquo; <a href="/2015/07/30/">《星杯传说 破晓》的人物技能平衡调整</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>February</h3>
-          <ul>
-        
       
-    
+
+
   
-    
-    
-    
-    
-  
-    
-  
-    <li><span>February  2, 2015</span> &raquo; <a href="/2015/02/02/the-httpdini-redirect-rules-for-yourls">The httpd.ini redirect rules for YOURLS</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>January</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January 26, 2015</span> &raquo; <a href="/2015/01/26/moved-to-jingbeili">Moved to jingbei.li</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January 23, 2015</span> &raquo; <a href="/2015/01/23/a-simple-bat-script-to-splicing-videos">A simple bat script to splicing videos</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January  9, 2015</span> &raquo; <a href="/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds">A colorful byobu script to notify your new mails and feeds</a></li>
-  
-    
-      
-        </ul>
-        <h2>2014</h2>
-        <h3>December</h3>
-        <ul>
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>December 29, 2014</span> &raquo; <a href="/2014/12/29/using-rssdrop-to-read-feeds-in-mutt">Using rssdrop to receive and read feeds in Mutt</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>December 17, 2014</span> &raquo; <a href="/2014/12/17/auto-convert-the-base64-code-into-utf-8">Auto convert the base64 code in Abook</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>November</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>November 29, 2014</span> &raquo; <a href="/2014/11/29/a-simple-script-to-check-your-ruby-version">A simple script to check your ruby library version</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>November 11, 2014</span> &raquo; <a href="/2014/11/11/show-colors-in-byobu-control-bar">Showing colors in the Byobu custom scripts</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>October</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>October 21, 2014</span> &raquo; <a href="/2014/10/21/running-qqdownload-prefectly-under-linux">Running QQDownload prefectly under linux</a></li>
-  
-    
-      
-        </ul>
-        <h2>2013</h2>
-        <h3>December</h3>
-        <ul>
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>December 14, 2013</span> &raquo; <a href="/2013/12/14/using-astyle-to-format-cc-codes">Using astyle to format C/C++ codes</a></li>
-  
-    
-          
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>December 14, 2013</span> &raquo; <a href="/2013/12/14/cocos2dxgtestgcov">Using gtest and gcov in cocos2dx</a></li>
-  
-    
-      </ul>
+     
+    	<li><a href="/tags.html#openwrt-ref">openwrt <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ipv6-ref">ipv6 <span>1</span></a></li>
     
   
 
 
 
+    </ul>
+    
 
   
 
