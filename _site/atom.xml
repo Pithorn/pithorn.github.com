@@ -4,13 +4,72 @@
  <title>Jingbei Li's Blog</title>
  <link href="http://jingbei.li/" rel="self"/>
  <link href="http://jingbei.li"/>
- <updated>2015-08-26T17:43:43+08:00</updated>
+ <updated>2015-10-01T13:17:44+08:00</updated>
  <id>http://jingbei.li</id>
  <author>
    <name>Jingbei Li</name>
    <email>jingbei.li@yahoo.com</email>
  </author>
 
+ 
+ <entry>
+   <title>记sort中的一个bug</title>
+   <link href="http://jingbei.li/2015/10/01/sortbug"/>
+   <updated>2015-10-01T00:00:00+08:00</updated>
+   <id>http://jingbei.li/2015/10/01/sortbug</id>
+   <content type="html">
+&lt;p&gt;这个bug源自我的同学&lt;a href=&quot;https://github.com/perypery&quot;&gt;perypery&lt;/a&gt;，在和中文大战三百回合之后。。。&lt;/p&gt;
+
+&lt;h3 id=&quot;bug&quot;&gt;bug具体是这样的&lt;/h3&gt;
+
+&lt;p&gt;建立一个包含多的全角正反小括号的文件，一个一行：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cat test.txt
+）
+）
+（
+（&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后&lt;code&gt;sort -u test.txt&lt;/code&gt;，期望的输出肯定是&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sort -u test.txt
+（
+）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;但是实际上&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sort -u a.txt 
+）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;嗯？怎么回事？&lt;code&gt;（&lt;/code&gt;哪里去了？&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;多版本验证已经降级时遇到的问题&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;sort&lt;/code&gt;来自于&lt;code&gt;coreutils&lt;/code&gt;这个软件包，在8.13这个版本时还是好好的。。8.{20,21,22}均有这个问题。
+于是我先下了一个8.13，打算降级回去，编译的时候发现&lt;code&gt;gets()&lt;/code&gt;这个函数已经从&lt;code&gt;stdio.h&lt;/code&gt;里面干掉了，编译器表示推荐使用&lt;code&gt;fgets()&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;猜想，是不是因为这个导致获取文本时出现了变化？这个变化使&lt;code&gt;（&lt;/code&gt;和&lt;code&gt;）&lt;/code&gt;被识别成了同一个字符？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;高版本的解决方案&lt;/h3&gt;
+
+&lt;p&gt;经我的同学们调查，这个问题在&lt;a href=&quot;http://unix.stackexchange.com/questions/17198/where-has-my-uniq-or-sort-u-line-gone-with-some-unicode-characters&quot;&gt;这里&lt;/a&gt;也有提及。不仅仅&lt;code&gt;sort&lt;/code&gt;，&lt;code&gt;uniq&lt;/code&gt;也有这个问题。原因果然是被认成了同一个字符。。&lt;/p&gt;
+
+&lt;p&gt;不过我的shell内都设置了&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;。按理说不应该啊。。后来发现这个和shell的LOCALE没什么关系，要看Glibc用的是什么LOCALE。对应的就是&lt;code&gt;LC_COLLATE&lt;/code&gt;这个变量。不过我把这个变量设置成&lt;code&gt;zh_CN*&lt;/code&gt;都没有效果，设置成&lt;code&gt;C&lt;/code&gt;(就是&lt;code&gt;POSIX&lt;/code&gt;)以后倒是正常了。&lt;/p&gt;
+
+&lt;p&gt;所以目前的解决方案就是临时设置一下&lt;code&gt;LC_COLLATE&lt;/code&gt;了。因为&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The first rule of LC_COLLATE is: don’t use LC_COLLATE.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;env &lt;span class=&quot;nv&quot;&gt;LC_COLLATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;C sort -u test.txt
+（
+）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Openwrt 15.05rc1 HG255D的ipv6支持</title>
@@ -117,9 +176,9 @@ ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其�
  
  <entry>
    <title>《星杯传说 破晓》的人物技能平衡调整</title>
-   <link href="http://jingbei.li/2015/07/30/"/>
+   <link href="http://jingbei.li/2015/07/30/custom-update-for-stargrail-lite-edition"/>
    <updated>2015-07-30T00:00:00+08:00</updated>
-   <id>http://jingbei.li/2015/07/</id>
+   <id>http://jingbei.li/2015/07/30/custom-update-for-stargrail-lite-edition</id>
    <content type="html">
 &lt;p&gt;《星杯传说 破晓》原版的人物平衡性就有所欠缺，在扩展包《龙族复兴》加入以后这一点就变得更为突出。
 为了让这个游戏还能玩，我个人对其中的人物技能做了下述调整。&lt;/p&gt;
@@ -128,7 +187,7 @@ ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其�
   &lt;li&gt;被增强的角色：游侠 占星家 皇家侍卫 血天使 暗之王女&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;被削弱的角色：星纹师 龙之契约者 真龙女王
-&lt;!--* 无调整的角色：天马骑士 圣堂刺客 炼金术士 咒术师 驱魔者 龙骑统帅 风暴执政官 剑舞者 大地武士 龙语者 幽魂法师 霜雪公主 裁决者 心灵塑师 战歌祭司--&gt;&lt;/p&gt;
+&lt;!--* 无调整的角色：龙之契约者 天马骑士 圣堂刺客 炼金术士 咒术师 驱魔者 龙骑统帅 风暴执政官 剑舞者 大地武士 龙语者 幽魂法师 霜雪公主 裁决者 心灵塑师 战歌祭司--&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;进一步的调整打算：
     &lt;ul&gt;
@@ -177,11 +236,6 @@ ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其�
       &lt;li&gt;【命运雕刻】：指定一名不少于2张手牌的队友给你2张牌，之后将手中的2张牌交给任意一名队友，我方战绩区+1宝石。&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;龙之契约者
-    &lt;ul&gt;
-      &lt;li&gt;【巨龙之力】：你的主动攻击伤害等于你当前手牌数量。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
   &lt;li&gt;真龙女王
     &lt;ul&gt;
       &lt;li&gt;移除【龙魂守护】&lt;/li&gt;
@@ -193,8 +247,8 @@ ip6tables -t nat -I POSTROUTING -s xxxx:xxxx:xxxx:xxxx::/64 -j MASQUERADE  #其�
       &lt;/li&gt;
       &lt;li&gt;增加效果：你只能按照【龙神恩惠】【龙王神力】【百万龙炎】【圣龙威压】的顺序翻开及移除禁制。&lt;/li&gt;
       &lt;li&gt;增加效果：每发动一次【龙族复兴】，【龙族复兴】所需的宝石数量+1。&lt;/li&gt;
-      &lt;li&gt;【龙王神力】：【攻击命中后弃X(X&amp;gt;1)张异系牌】本次伤害额外+X，“龙脉束缚”存在时不能发动该技能&lt;/li&gt;
-      &lt;li&gt;【百万龙炎】：【弃X(X&amp;gt;1)张同系牌】对自己和任一对手各造成X点法术伤害，“龙狂迷锁”存在时不能发动该技能。&lt;/li&gt;
+      &lt;li&gt;【龙王神力】：【主动攻击命中后弃X张异系牌】本次伤害额外+X，“龙脉束缚”存在时不能发动该技能&lt;/li&gt;
+      &lt;li&gt;【百万龙炎】：【弃X张同系牌】对自己和任一对手各造成X点法术伤害，“龙狂迷锁”存在时不能发动该技能。&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;

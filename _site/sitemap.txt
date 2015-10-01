@@ -10,8 +10,9 @@ http://jingbei.li/sitemap.txt
 http://jingbei.li/tags.html
 http://jingbei.li/timeline.html
 
+http://jingbei.li/2015/10/01/sortbug
 http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt
-http://jingbei.li/2015/07/30/
+http://jingbei.li/2015/07/30/custom-update-for-stargrail-lite-edition
 http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls
 http://jingbei.li/2015/01/26/moved-to-jingbeili
 http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos
