@@ -18,7 +18,7 @@ tagline: Welcome!
 			<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 			<h4>{{ post.date | date_to_string }}</h4>
 			<p>{{ post.content }}</p>
-			<button class="btn"><a href="{{ post.url }}">Read more</a></button>
+			<button class="btn"><a href="{{ post.url }}">Leave a comment</a></button>
 		</div>
 	{% endfor %}
 </ul>
