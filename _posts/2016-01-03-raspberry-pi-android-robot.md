@@ -24,7 +24,7 @@ tags: [raspberry pi]
 
 其实没啥意思，我就狂笑了6个小时就不笑了。。。这不关键。。先做一个交作业吧。。
 
-### The Model
+### The Money Box
 
 他说什么就做什么呗，先买空心的android模型。这个还不太好找，找个大小合适的能放树莓派的还真的挺少的。。
 
@@ -136,6 +136,7 @@ tags: [raspberry pi]
 所以展示的时候我们果断的直接把这个模块给去了。。然后站的不是那么的偏。。
 
 最终效果就是识别到人，电机极快的转过去，然后再识别。转的过程中是不识别的，所以还没有那么流畅，不过先这样吧。。
+
 ### The Raspberry Pi
 
 树莓派是啥我就不多说了，得名是因为这个东西红红的像树莓做的派一样。。不过现在国内能买到的都是绿的了吧。
@@ -160,7 +161,7 @@ tags: [raspberry pi]
 
 甭管怎么说，先录一段音出来再说吧。嗯？怎么没有用。。汗，原来自带的声卡只有输出没有输入。。。这都行。。先补买一个usb声卡好了。。切换声卡就用asoundconf
 
-### The Automatic Speech Recognition
+### Automatic Speech Recognition
 
 先找现成的，github上的这个[PiAUISuite](https://github.com/StevenHickson/PiAUISuite)里面的VoiceCommand基本上就是我想要的功能了，[这里](http://blog.csdn.net/zebra2011/article/details/24258065)还有一份中文的说明，看起来很靠谱的样子。。
 
@@ -212,7 +213,7 @@ done
 {%endhighlight%}
 写出来不就那么几行吗。。费那么多劲干什么。。不过同时也能看出来，现在就是看见start，然后截3秒，识别一段时间。识别的过程中是什么都听不见的，这个就算下一步的改进目标吧。
 
-### The Text To Speech
+### Text To Speech
 
 识别出来命令后，我就直接把命令规则定义好了：
 
