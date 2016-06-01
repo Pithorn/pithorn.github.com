@@ -6,15 +6,15 @@ title: About
 
 #Jingbei Li
 
-* A senior student at Department Of Computer Science, Tsinghua University.
-<!--* A intern student at the laboratory of Pattern recognition, Institute of Automation, Chinese Academy of Sciences.-->
+* A master student at Department Of Computer Science, Tsinghua University.
 * A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo).
 
 ### Links
 
 * [Me@Github.com](https://github.com/petronny)
+* [Me@Weibo.com](http://weibo.com/petronny)
+* [Me@Twitter.com](https://twitter.com/JingbeiLi)
 * [Me@Facebook.com](https://www.facebook.com/jingbei.li)
-<!--* [Me@Renren.com](http://www.renren.com/364083386)(A clone to Facebook)-->
 
 ### Contacts
 
