@@ -8,6 +8,7 @@ title: About
 
 * A master student at Department Of Computer Science, Tsinghua University.
 * A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo).
+* The creator of [Archlinux Repository for Education](https://github.com/arch4edu/arch4edu).
 
 ### Links
 
