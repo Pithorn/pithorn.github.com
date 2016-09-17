@@ -2,6 +2,6 @@ nguage: node_js
 node_js: node
 branches: hexo
 install:
-        - npm install hexo-cli -g
+        - npm install hexo -g
         - npm install
 script: sh build.sh
