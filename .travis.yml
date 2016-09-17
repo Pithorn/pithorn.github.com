@@ -1,0 +1,6 @@
+nguage: node_js
+node_js: node
+install:
+        - npm install hexo-cli -g
+        - npm install
+script: sh build.sh
