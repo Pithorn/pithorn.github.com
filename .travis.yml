@@ -1,10 +1,8 @@
 language: node_js
-node_js: node
+node_js: 6
 branches: hexo
 install:
         - npm install hexo-cli -g
-        - npm install hexo --save
         - npm install
 script:
-        - hexo clean
         - hexo g
