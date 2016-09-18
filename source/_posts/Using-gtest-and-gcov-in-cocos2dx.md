@@ -23,23 +23,29 @@ tags: [gtest, android, cocos2dx]
 
 运行方式
 
-	adb push cocos2d-x-2.1.5/sebomber/proj.android/libs/armeabi/libgame /data/
-	adb shell
-	export GCOV_PREFIX=/sdcard/mycov
-	cd /data
-	./libgame
+```sh
+adb push cocos2d-x-2.1.5/sebomber/proj.android/libs/armeabi/libgame /data/
+adb shell
+export GCOV_PREFIX=/sdcard/mycov
+cd /data
+./libgame
+```
 
 * 运行结束后，生成的GCOV用的文件在/sdcard/mycov里
 
 ##### 获取GCOV文件到home
 
-	adb pull /sdcard/mycov ~
+```sh
+adb pull /sdcard/mycov ~
+```
 
 将cocos2d-x-2.1.5/sebomber/proj.android/obj里面的.gcno文件
 从手机里得到的.gcda, 和对应的.cpp文件放在一起
 运行
 
-	android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcov -b *.cpp
+```sh
+android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcov -b *.cpp
+```
 
 即可得到覆盖率报告及生成的报告文件
 
@@ -57,7 +63,9 @@ tags: [gtest, android, cocos2dx]
 还是按照上面那个链接里面给出的googletest的编译方式
 额外在googletest的jni/Application.mk中添加
 
-	APP_CPPFLAGS := -frtti
+```
+APP_CPPFLAGS := -frtti
+```
 
 然后做一个新的libgtest.
 
