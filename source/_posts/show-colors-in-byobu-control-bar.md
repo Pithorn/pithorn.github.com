@@ -1,25 +1,21 @@
----
-layout: post
 title: "Showing colors in the Byobu custom scripts"
-description: ""
-category: 
+date: 2014-11-11
 tags: [linux,byobu,tmux,script]
 ---
-{% include JB/setup %}
 [Byobu](byobu.co) is a frontend for screen or tmux.
 
 But the custom script sample in the manual page does not working in tmux.
 
-{% highlight sh %}
+```sh
 #!/bin/sh
 printf "\005{= bw}%s\005{-}\n" "$(uname -r)"
-{% endhighlight %}
+```
 
 Actually, writing it in tmux's way is ok.
 
 Here is an example for showing the Wifi name with colors.
 
-{% highlight sh %}
+```sh
 #!/bin/sh -e
 COLOR_SET="#[fg=white bg=blue bold]"
 COLOR_RESTORE="#[fg=$BYOBU_LIGHT bg=$BYOBU_DARK]"
@@ -29,4 +25,4 @@ if [ ! "$ssid" = "off/any" ]
 then
 	echo -e "$COLOR_SET""$ssid""$COLOR_RESTORE"
 fi
-{% endhighlight %}
+```

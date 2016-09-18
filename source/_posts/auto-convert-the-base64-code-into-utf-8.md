@@ -1,8 +1,5 @@
----
-layout: post
 title: "Auto convert the base64 code in Abook"
-description: ""
-category: 
+date: 2014-12-17
 tags: [abook,linux,mutt,python,script]
 ---
 
@@ -12,27 +9,31 @@ There is a chapter about using abook with mutt in the [ArchWiki](https://wiki.ar
 
 If you want to use __Abook__ instead of aliases, remove the aliases configuration in `.muttrc` and add this:
 
-	set query_command= "abook --mutt-query '%s'"
-	macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
-	bind editor        <Tab> complete-query
+```
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
+```
 
 But sadly, the command `abook --add-email-quiet` always gets names like "=?utf-8?B?55m+5ZCI5LuZ5a2Q?=" which is base64 encoded.
 
 To convert the base64 string and automatically fit the correct encoding, you can use a shell function:
 
-{% highlight sh %}
+```sh
 conv() {
 	eval `echo $1 | awk -F '?' '{ print "echo " $4 " | base64 -d | iconv -f " $2 }'`
 }
-{% endhighlight %}
+```
 
 Then:
 
-	$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=
+```
+$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=
+```
 
 Or a python script like this:
 
-{% highlight cython %}
+```python
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 import email
@@ -58,12 +59,12 @@ def abookdecode(origin_name):
 	    else:
 		outfile.write(line)
     outfile.close()
-{% endhighlight %}
+```
 
 And then change your `.muttrc` to call the script:
 
-	macro index,pager  a "<pipe-message>abook --add-email-quiet && abook-decode ~/.abook/addressbook<return>" "Add this sender to Abook"
+```
+macro index,pager  a "<pipe-message>abook --add-email-quiet && abook-decode ~/.abook/addressbook<return>" "Add this sender to Abook"
+```
 
 Now the addressbook will be written correctly.
-
-{% include JB/setup %}

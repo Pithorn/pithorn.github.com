@@ -1,11 +1,7 @@
----
-layout: post
 title: "Using rssdrop to receive and read feeds in Mutt"
-description: ""
-category: 
+date: 2014-12-29
 tags: [mutt, linux, rssdrop]
 ---
-{% include JB/setup %}
 
 ### rssdrop
 
@@ -17,7 +13,9 @@ The dependencies are `perl-xml-simple`, `perl-date-manip` and `perl-lwp-protocol
 
 If you have solved the dependencies, clone my fork and rssdrop just works:
 
-	git clone https://github.com/petronny/rssdrop
+```sh
+git clone https://github.com/petronny/rssdrop
+```
 
 If you are using Archlinux, just install the `rssdrop` package from AUR.
 
@@ -25,23 +23,33 @@ If you are using Archlinux, just install the `rssdrop` package from AUR.
 
 ##### Initialize rssdrop
 
-	$ rssdrop --mailfolder path/to/mailfolder
+```sh
+$ rssdrop --mailfolder path/to/mailfolder
+```
 
 ##### Subscribe to a new feed
 
-	$ rssdrop -a archlinux https://www.archlinux.org/feeds/news/
+```sh
+$ rssdrop -a archlinux https://www.archlinux.org/feeds/news/
+```
 
 ##### Fetch items in your new feed
 
-	$ rssdrop archlinux
+```sh
+$ rssdrop archlinux
+```
 
 ##### Unsubscribe
 
-	$ rssdrop -d archlinux
+```sh
+$ rssdrop -d archlinux
+```
 
 ##### Fetch all new items in all feeds
 
-	$ rssdrop
+```sh
+$ rssdrop
+```
 
 ### Mutt
 
@@ -56,7 +64,7 @@ Refer to [this blog](http://stromberg.dnsalias.org/~strombrg/mutt-html.html), `l
 
 Here is an example of `html2txt`:
 
-{% highlight sh %}
+```sh
 #!/bin/sh
 # for mutt to view html e-mails
 
@@ -69,17 +77,21 @@ elinks -dump "file://$@"
 #or
 #
 #w3m -T text/html -F -dump "$@"
-{% endhighlight %}
+```
 
 You also need a `~/.mailcap`:
 
-	# for mutt to view html e-mails
-	text/html;html2txt %s; copiousoutput
+```
+# for mutt to view html e-mails
+text/html;html2txt %s; copiousoutput
+```
 
 And configure the following options in your `~/.muttrc`:
 
-	# for viewing html e-mails inside mutt.  See also .mailcap
-	auto_view text/html
-	alternative_order text/enriched text/plain text text/html
+```
+# for viewing html e-mails inside mutt.  See also .mailcap
+auto_view text/html
+alternative_order text/enriched text/plain text text/html
+```
 
 Now you can read all the html mails in mutt, not only the feeds.

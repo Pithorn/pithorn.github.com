@@ -1,11 +1,7 @@
----
-layout: post
 title: "Running QQDownload prefectly under linux"
-description: ""
-category: 
+date: 2014-10-21
 tags: [wine,linux]
 ---
-{% include JB/setup %}
 
 [QQDownload](http://xf.qq.com/index.html)(QQ旋风, which means "QQ tornado") is a download manager and bittorrent client developed by Tencent Holdings Ltd.
 
