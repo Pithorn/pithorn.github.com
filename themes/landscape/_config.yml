@@ -13,15 +13,15 @@ fancybox: true
 sidebar: right
 widgets:
 - recent_posts
-- category
-- tag
 - tagcloud
 - archive
+  #- category
+  #- tag
 
 # Miscellaneous
 google_analytics:
 favicon: /favicon.png
-twitter:
+twitter: JingbeiLi
 google_plus:
 fb_admins:
 fb_app_id:
