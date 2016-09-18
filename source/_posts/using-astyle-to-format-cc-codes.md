@@ -1,16 +1,15 @@
 ---
-layout: post
 title: "Using astyle to format C/C++ codes"
-description: ""
-category: 
+date: 2013-12-14
 tags: [astyle,c++]
 ---
-{% include JB/setup %}
-
-	astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej
+```sh
+astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej
+```
 
 Here is a preview.
-{% highlight cpp %}
+
+```cpp
 #ifndef __Hero_Bazzi__
 #define __Hero_Bazzi__
 #include "cocos2d.h"
@@ -53,4 +52,4 @@ void HeroBazzi::createhero(CCPoint a,float scale,int id,int type)
 	action=NULL;
 }
 #endif
-{% endhighlight %}
+```
