@@ -1,0 +1,58 @@
+title: "记sort中的一个bug"
+date: 2015-10-01
+tags: [shell, linux]
+---
+
+这个bug源自我的同学[perypery](https://github.com/perypery)，在和中文大战三百回合之后。。。
+
+### bug具体是这样的
+
+建立一个包含多的全角正反小括号的文件，一个一行：
+
+```sh
+$ cat test.txt
+）
+）
+（
+（
+```
+
+然后`sort -u test.txt`，期望的输出肯定是
+
+```
+$ sort -u test.txt
+（
+）
+```
+
+但是实际上
+
+```
+$ sort -u a.txt
+）
+```
+
+嗯？怎么回事？`（`哪里去了？
+
+### 多版本验证以及降级时遇到的问题
+
+`sort`来自于`coreutils`这个软件包，在8.13这个版本时还是好好的。。8.{20,21,22}均有这个问题。
+于是我先下了一个8.13，打算降级回去，编译的时候发现`gets()`这个函数已经从`stdio.h`里面干掉了，编译器表示推荐使用`fgets()`。
+
+> 猜想，是不是因为这个导致获取文本时出现了变化？这个变化使`（`和`）`被识别成了同一个字符？
+
+### 高版本的解决方案
+
+经我的同学们调查，这个问题在[这里](http://unix.stackexchange.com/questions/17198/where-has-my-uniq-or-sort-u-line-gone-with-some-unicode-characters)也有提及。不仅仅`sort`，`uniq`也有这个问题。原因果然是被认成了同一个字符。。
+
+不过我的shell内都设置了`LANG=zh_CN.UTF-8`。按理说不应该啊。。后来发现这个和shell的LOCALE没什么关系，要看Glibc用的是什么LOCALE。对应的就是`LC_COLLATE`这个变量。不过我把这个变量设置成`zh_CN*`都没有效果，设置成`C`(就是`POSIX`)以后倒是正常了。
+
+所以目前的解决方案就是临时设置一下`LC_COLLATE`了。因为
+
+> The first rule of LC_COLLATE is: don't use LC_COLLATE.
+
+```sh
+$ env LC_COLLATE=C sort -u test.txt
+（
+）
+```
