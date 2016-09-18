@@ -87,4 +87,3 @@ exclude_generator:
 deploy:
   type: git
   repo: git@github.com:petronny/petronny.github.com
-  branch: public
