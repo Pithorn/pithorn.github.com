@@ -78,6 +78,13 @@ disqus_shortname: jingbei
 
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
+plugin:
+- hexo-generator-feed
+#Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
 theme: landscape
 exclude_generator:
