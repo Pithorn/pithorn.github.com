@@ -3,4 +3,5 @@ node_js: node
 branches: hexo
 install:
         - npm install hexo
+        - npm install
 script: sh build.sh

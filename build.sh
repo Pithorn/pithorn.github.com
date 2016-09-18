@@ -1,7 +1,7 @@
 #!/bin/sh
 pwd
 ls
-hexo generate
+node_modules/hexo/bin/hexo generate
 #git checkout public
 #rm -rf css fancybox js index.html
 #mv public/* .
