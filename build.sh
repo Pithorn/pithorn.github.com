@@ -1,4 +1,6 @@
 #!/bin/sh
+pwd
+ls
 hexo generate
 #git checkout public
 #rm -rf css fancybox js index.html
