@@ -8,7 +8,7 @@ tags: [gtest, android, cocos2dx]
 ### cocos2dx的libtiff.a的main函数重定义
 
 这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.
-[参见此贴](http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html) 
+[参见此贴](http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html)
 后简直雪中送炭．
 
 现把我在自己的项目中的做法记下来：
@@ -45,7 +45,7 @@ tags: [gtest, android, cocos2dx]
 
 其中，libtiff.a是要自己重编译的．里面的libgtest也要重编译．
 
-###gtest与cocos2dx冲突的问题
+### gtest与cocos2dx冲突的问题
 
 感谢[github.com/sfuku7/googletest_android_ndk-build](https://github.com/sfuku7/googletest_android_ndk-build)
 给出了详尽的使用方式．
