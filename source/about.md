@@ -1,11 +1,9 @@
-title: About
+title: Jingbei Li
 ---
-
-#Jingbei Li
 
 * A master student at Department Of Computer Science, Tsinghua University.
 * A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo).
-* The creator of [Archlinux Repository for Education](https://github.com/arch4edu/arch4edu).
+* Creator of the [Archlinux Repository for Education](https://github.com/arch4edu/arch4edu).
 
 ### Links
 
@@ -16,14 +14,14 @@ title: About
 
 ### Contacts
 
-#### Emails
+#### Email
 
 * [i@jingbei.li](mailto:i@jingbei.li)
 
-#### Phone number
+#### Phone
 
 * +86-13389921221
 
 #### Address
 
-* 403, Student Dormitory 26, Tsinghua University, Beijing China, 100084
+* Room 403, Student Dormitory 26, Tsinghua University, Beijing China, 100084
