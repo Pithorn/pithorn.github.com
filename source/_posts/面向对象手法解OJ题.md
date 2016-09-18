@@ -1,11 +1,7 @@
----
-layout: post
 title: "面向对象手法解OJ题"
-description: ""
-category: 
+date: 2016-01-02
 tags: [c++]
 ---
-{% include JB/setup %}
 
 #### Introduction
 
@@ -29,7 +25,7 @@ tags: [c++]
 
 现在假设所有兔子都永远不会死，问INT_MAX-1个月后有多少对兔子呢？结果只需输出最后4位。
 
-{%highlight cpp%}
+```cpp
 #include <iostream>
 #include <climits>
 using namespace std;
@@ -90,4 +86,4 @@ int main() {
 	a[1][1]=0;
 	cout<<(a^INT_MAX)[0][0]<<endl;
 }
-{%endhighlight%}
+```
