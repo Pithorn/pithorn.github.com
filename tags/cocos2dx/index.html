@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: cocos2dx | Jingbei Li&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jingbei Li's Blog">
+<meta property="og:url" content="http://jingbei.li/tags/cocos2dx/index.html">
+<meta property="og:site_name" content="Jingbei Li's Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jingbei Li's Blog">
+<meta name="twitter:creator" content="@JingbeiLi">
+  
+    <link rel="alternative" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jingbei Li&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jingbei.li"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Using-gtest-and-gcov-in-cocos2dx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/" class="article-date">
+  <time datetime="2013-12-14T00:00:00.000Z" itemprop="datePublished">Dec 14 2013</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/">Using gtest and gcov in cocos2dx</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>狂调半宿代码，深感与硬件打交道坑爹之处．<br>现暂记几处，以免后人入坑．</p>
+<h3 id="cocos2dx的libtiff-a的main函数重定义"><a href="#cocos2dx的libtiff-a的main函数重定义" class="headerlink" title="cocos2dx的libtiff.a的main函数重定义"></a>cocos2dx的libtiff.a的main函数重定义</h3><p>这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.<br><a href="http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html" target="_blank" rel="external">参见此贴</a><br>后简直雪中送炭．</p>
+<p>现把我在自己的项目中的做法记下来：</p>
+<ul>
+<li>切换到UnitTest分支</li>
+<li>做git下的proj.android/exteral到cocos2dx/sebomber/proj.android/exteral的软连接</li>
+<li>用git下的libtiff.a替换 cocos2d-x-2.1.5/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi/libtiff.a</li>
+</ul>
+<h4 id="在jni-main3-cpp内做gtest单元测试"><a href="#在jni-main3-cpp内做gtest单元测试" class="headerlink" title="在jni/main3.cpp内做gtest单元测试"></a>在jni/main3.cpp内做gtest单元测试</h4><p>编译使用原来的编译方式</p>
+<p>运行方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adb push cocos2d-x-2.1.5/sebomber/proj.android/libs/armeabi/libgame /data/</div><div class="line">adb shell</div><div class="line"><span class="built_in">export</span> GCOV_PREFIX=/sdcard/mycov</div><div class="line"><span class="built_in">cd</span> /data</div><div class="line">./libgame</div></pre></td></tr></table></figure>
+<ul>
+<li>运行结束后，生成的GCOV用的文件在/sdcard/mycov里</li>
+</ul>
+<h5 id="获取GCOV文件到home"><a href="#获取GCOV文件到home" class="headerlink" title="获取GCOV文件到home"></a>获取GCOV文件到home</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb pull /sdcard/mycov ~</div></pre></td></tr></table></figure>
+<p>将cocos2d-x-2.1.5/sebomber/proj.android/obj里面的.gcno文件<br>从手机里得到的.gcda, 和对应的.cpp文件放在一起<br>运行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcov -b *.cpp</div></pre></td></tr></table></figure>
+<p>即可得到覆盖率报告及生成的报告文件</p>
+<p>其中，libtiff.a是要自己重编译的．里面的libgtest也要重编译．</p>
+<h3 id="gtest与cocos2dx冲突的问题"><a href="#gtest与cocos2dx冲突的问题" class="headerlink" title="gtest与cocos2dx冲突的问题"></a>gtest与cocos2dx冲突的问题</h3><p>感谢<a href="https://github.com/sfuku7/googletest_android_ndk-build" target="_blank" rel="external">github.com/sfuku7/googletest_android_ndk-build</a><br>给出了详尽的使用方式．</p>
+<p>不过里面自带的那个libgtest是不能直接用的．<br>由于cocos2dx在编译时使用了frtti优化，我在写cocos2dx项目的单元测试文件时要么gtest不能用，要么cocos2dx不能用．<br>蛋疼了好几个小时，饭都没吃．最后想到把libgtest也开启frtti重编译一下就应该兼容了．</p>
+<p>还是按照上面那个链接里面给出的googletest的编译方式<br>额外在googletest的jni/Application.mk中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">APP_CPPFLAGS := -frtti</div></pre></td></tr></table></figure>
+<p>然后做一个新的libgtest.</p>
+<p>放到那个项目的sample/test_project/external下对应的地方测试能用．</p>
+<p>按照sample/test_project/下的目录结构复制到cocos2dx的proj.android下，终于成功了．</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/" data-id="cit8kcjhq0002dkh6hyntw0lf" class="article-share-link">Share</a>
+      
+        <a href="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/">cocos2dx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gtest/">gtest</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/18/迁移至hexo/">迁移至hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/03/raspberry-pi-android-robot/">用raspberry pi做一个android机器人</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/面向对象手法解OJ题/">面向对象手法解OJ题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/论如何给一门课出大作业及评测系统/">论如何给一门课出大作业及评测系统</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/我来给大家科普一下什么叫C模拟面向对象/">我来给大家科普一下什么叫C模拟面向对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/abook/" style="font-size: 10px;">abook</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/astyle/" style="font-size: 10px;">astyle</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/byobu/" style="font-size: 12.5px;">byobu</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cocos2dx/" style="font-size: 10px;">cocos2dx</a> <a href="/tags/cpp/" style="font-size: 10px;">cpp</a> <a href="/tags/desktop-game/" style="font-size: 10px;">desktop game</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/gtest/" style="font-size: 10px;">gtest</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/logs/" style="font-size: 12.5px;">logs</a> <a href="/tags/mutt/" style="font-size: 12.5px;">mutt</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/tags/rssdrop/" style="font-size: 12.5px;">rssdrop</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/script/" style="font-size: 17.5px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/tags/windows/" style="font-size: 12.5px;">windows</a> <a href="/tags/wine/" style="font-size: 10px;">wine</a> <a href="/tags/yourls/" style="font-size: 10px;">yourls</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jingbei Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jingbei';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
