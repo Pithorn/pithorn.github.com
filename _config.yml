@@ -86,7 +86,7 @@ type: atom
 path: atom.xml
 limit: 20
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: landscape
+theme: hexo-theme-landscape
 exclude_generator:
 
 # Deployment
