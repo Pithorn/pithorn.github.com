@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: php | Jingbei Li&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jingbei Li's Blog">
+<meta property="og:url" content="http://jingbei.li/tags/php/index.html">
+<meta property="og:site_name" content="Jingbei Li's Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jingbei Li's Blog">
+  
+    <link rel="alternate" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jingbei Li&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jingbei.li"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-the-httpdini-redirect-rules-for-yourls" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/02/the-httpdini-redirect-rules-for-yourls/" class="article-date">
+  <time datetime="2015-02-02T00:00:00.000Z" itemprop="datePublished">Feb 2 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/02/the-httpdini-redirect-rules-for-yourls/">The httpd.ini redirect rules for YOURLS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The <code>.htaccess</code> for <a href="http://yourls.org/" target="_blank" rel="external">YOURLS</a> will not work on Windows servers.<br>Although YOURLS has noticed that and will create <code>web.config</code> automatically on Windows, my first url shortener site, <a href="http://url.jingbei.li/" target="_blank" rel="external">url.jingbei.li</a> still cannot redirect links as my expect.</p>
+<p>The reason is the Windows server I used is an old IIS server not a IIS7 server, the rewrite rules file should be <code>httpd.ini</code>, not <code>web.config</code>.</p>
+<p>And <code>REQUEST_FILENAME</code> does not check the local files because it is relative. The current solution is writing all the file names and directory name manually to <code>httpd.ini</code>. It is a little silly, but works.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[ISAPI_Rewrite]</div><div class="line">RewriteRule /admin(.*) /admin$1 [L]</div><div class="line">RewriteRule /css(.*) /css$1 [L]</div><div class="line">RewriteRule /images(.*) /images$1 [L]</div><div class="line">RewriteRule /includes(.*) /includes$1 [L]</div><div class="line">RewriteRule /js(.*) /js$1 [L]</div><div class="line">RewriteRule /pages(.*) /pages$1 [L]</div><div class="line">RewriteRule /user(.*) /user$1 [L]</div><div class="line">RewriteRule /(.*).html /$1.html [L]</div><div class="line">RewriteRule /(.*).php /$1.php [L]</div><div class="line">RewriteRule /.+ /yourls-loader.php [L]</div></pre></td></tr></table></figure>
+<h4 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h4><p>I’ve also resigned another domain, <a href="http://pturl.tk/" target="_blank" rel="external">pturl.tk</a>. It does the same things that url.jingbei.li does, but much shorter. :)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/" data-id="citb7p09x000lfxfj9eim0yp5" class="article-share-link">Teilen</a>
+      
+        <a href="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/#disqus_thread" class="article-comment-link">Kommentare</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yourls/">yourls</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/abook/">abook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/astyle/">astyle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/byobu/">byobu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/">cocos2dx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/desktop-game/">desktop game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gtest/">gtest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hardware/">hardware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipv6/">ipv6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logs/">logs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rssdrop/">rssdrop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/script/">script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thinkpad/">thinkpad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wine/">wine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yourls/">yourls</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/abook/" style="font-size: 10px;">abook</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/astyle/" style="font-size: 10px;">astyle</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/byobu/" style="font-size: 12.5px;">byobu</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/c/" style="font-size: 15px;">c++</a> <a href="/tags/cocos2dx/" style="font-size: 10px;">cocos2dx</a> <a href="/tags/cpp/" style="font-size: 10px;">cpp</a> <a href="/tags/desktop-game/" style="font-size: 10px;">desktop game</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/gtest/" style="font-size: 10px;">gtest</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ipv6/" style="font-size: 10px;">ipv6</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/logs/" style="font-size: 12.5px;">logs</a> <a href="/tags/mutt/" style="font-size: 12.5px;">mutt</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry pi</a> <a href="/tags/rssdrop/" style="font-size: 12.5px;">rssdrop</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/script/" style="font-size: 17.5px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/tags/windows/" style="font-size: 12.5px;">windows</a> <a href="/tags/wine/" style="font-size: 10px;">wine</a> <a href="/tags/yourls/" style="font-size: 10px;">yourls</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/18/迁移至hexo/">迁移至hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/03/raspberry-pi-android-robot/">用raspberry pi做一个android机器人</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/面向对象手法解OJ题/">面向对象手法解OJ题</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/论如何给一门课出大作业及评测系统/">论如何给一门课出大作业及评测系统</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/我来给大家科普一下什么叫C模拟面向对象/">我来给大家科普一下什么叫C模拟面向对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jingbei Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'jingbei';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
