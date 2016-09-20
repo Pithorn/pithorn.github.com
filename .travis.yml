@@ -13,7 +13,7 @@ install:
 script:
 - hexo clean
 - git clone git@github.com:petronny/petronny.github.com public
-- git clone git@github.com:petronny/hexo-theme-landscape themes
+- git clone git@github.com:petronny/hexo-theme-landscape themes/
 - hexo generate
 # - hexo deploy
 - cd public
