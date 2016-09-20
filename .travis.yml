@@ -17,5 +17,5 @@ script:
 # - hexo deploy
 - cd public
 - git add .
-- git commit -m "Site updated: $(date)"
+- git commit -m "Site updated"
 - git push origin master
