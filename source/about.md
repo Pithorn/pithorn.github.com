@@ -3,7 +3,9 @@ title: Jingbei Li
 
 * A master student at Department Of Computer Science, Tsinghua University.
 * A maintainer of the [Archlinux CN Community Repository](https://github.com/archlinuxcn/repo).
-* Creator of the [Archlinux Repository for Education](https://github.com/arch4edu/arch4edu).
+* The creator of the [Archlinux Repository for Education](https://github.com/arch4edu/arch4edu).
+* ~~A colleague student at Department Of Computer Science, Tsinghua University.~~
+* ~~A intern student at the laboratory of Pattern recognition, Institute of Automation, Chinese Academy of Sciences.~~
 
 ### Links
 
