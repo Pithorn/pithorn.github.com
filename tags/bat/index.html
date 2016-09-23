@@ -88,17 +88,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Well, actually it’s a task given by my uncle. So the spirit of this script should be KISS, “Keep It Simple, Stupid”.</p>
-<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/" target="_blank" rel="external">static windows binary build</a>. A good start!</p>
-<p>The next part is writing a KISS script for windows. Because I’m not familiar to bat files at all, it took a while before I finally found out a trick to solve a problem about processing the files’ name.</p>
-<p>The final version of the script looks like the following:</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">cd</span> /d %~dp0</div><div class="line"><span class="built_in">set</span> ffmpeg=bin\ffmpeg.exe</div><div class="line"><span class="built_in">del</span> filelist.txt</div><div class="line"><span class="built_in">del</span> splicing.mkv</div><div class="line">:LOOP</div><div class="line"><span class="keyword">IF</span> [%<span class="number">1</span>]==[] <span class="keyword">GOTO</span> END</div><div class="line">	<span class="built_in">set</span> filename=%<span class="number">1</span></div><div class="line">	<span class="built_in">echo</span> file ^'%~<span class="number">1</span>^' &gt;&gt;filelist.txt </div><div class="line">	<span class="built_in">SHIFT</span></div><div class="line"><span class="keyword">GOTO</span> LOOP</div><div class="line">:END</div><div class="line"><span class="variable">%ffmpeg%</span> -f concat -i filelist.txt -c <span class="built_in">copy</span> splicing.mkv</div><div class="line"><span class="built_in">rename</span> splicing.mkv spliced.mkv</div><div class="line"><span class="built_in">del</span> filelist.txt</div></pre></td></tr></table></figure>
-<p>The trick is using <code>%~1</code> to remove the <code>&quot;</code> around the strings with spaces. Then force adding <code>&#39;</code> around all the filenames or else the <code>\</code> will be escaped.</p>
-<p>The usage of this script is quite simple. Make sure <code>bin\ffmpeg.exe</code> exist then drag all the videos to the script file.<br>By default, it will not recode the videos to increase efficiency. If it goes wrong, such as splicing videos with different sizes, or the videos need to recode, just edit the ffmpeg command to fix it.</p>
-
+<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/">static windows binary build</a>. A good start!<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/23/a-simple-bat-script-to-splicing-videos/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/" data-id="citfjepha0004fzft6buojf9t" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/" data-id="citfjoo7x0004g2cyow8ixygy" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/#disqus_thread" class="article-comment-link">Comments</a>
       

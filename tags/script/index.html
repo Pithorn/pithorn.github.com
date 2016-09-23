@@ -88,17 +88,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Well, actually it’s a task given by my uncle. So the spirit of this script should be KISS, “Keep It Simple, Stupid”.</p>
-<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/" target="_blank" rel="external">static windows binary build</a>. A good start!</p>
-<p>The next part is writing a KISS script for windows. Because I’m not familiar to bat files at all, it took a while before I finally found out a trick to solve a problem about processing the files’ name.</p>
-<p>The final version of the script looks like the following:</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">cd</span> /d %~dp0</div><div class="line"><span class="built_in">set</span> ffmpeg=bin\ffmpeg.exe</div><div class="line"><span class="built_in">del</span> filelist.txt</div><div class="line"><span class="built_in">del</span> splicing.mkv</div><div class="line">:LOOP</div><div class="line"><span class="keyword">IF</span> [%<span class="number">1</span>]==[] <span class="keyword">GOTO</span> END</div><div class="line">	<span class="built_in">set</span> filename=%<span class="number">1</span></div><div class="line">	<span class="built_in">echo</span> file ^'%~<span class="number">1</span>^' &gt;&gt;filelist.txt </div><div class="line">	<span class="built_in">SHIFT</span></div><div class="line"><span class="keyword">GOTO</span> LOOP</div><div class="line">:END</div><div class="line"><span class="variable">%ffmpeg%</span> -f concat -i filelist.txt -c <span class="built_in">copy</span> splicing.mkv</div><div class="line"><span class="built_in">rename</span> splicing.mkv spliced.mkv</div><div class="line"><span class="built_in">del</span> filelist.txt</div></pre></td></tr></table></figure>
-<p>The trick is using <code>%~1</code> to remove the <code>&quot;</code> around the strings with spaces. Then force adding <code>&#39;</code> around all the filenames or else the <code>\</code> will be escaped.</p>
-<p>The usage of this script is quite simple. Make sure <code>bin\ffmpeg.exe</code> exist then drag all the videos to the script file.<br>By default, it will not recode the videos to increase efficiency. If it goes wrong, such as splicing videos with different sizes, or the videos need to recode, just edit the ffmpeg command to fix it.</p>
-
+<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/">static windows binary build</a>. A good start!<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/23/a-simple-bat-script-to-splicing-videos/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/" data-id="citfjepha0004fzft6buojf9t" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/" data-id="citfjoo7x0004g2cyow8ixygy" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -135,15 +134,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>After <a href="../../../../2014/12/29/using-rssdrop-to-read-feeds-in-mutt/">delivering all the feeds to Maildirs by rssdrop</a>, I also need a notification daemon in my byobu shell.</p>
-<p>Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can <a href="../../../../2014/11/11/show-colors-in-byobu-control-bar/">use colors in byobu script’s output</a>!</p>
-<p><img src="http://7sbplw.com1.z0.glb.clouddn.com/screenshot-20150109_155440.png" alt="img"></p>
-<p>Here is my notification script at <code>~/.byobu/bin/5_mail</code>. 5 means checking every 5 seconds. Byobu will force all the scripts those period is shorter than 5 seconds to run as 5.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line">MAILDIR=<span class="string">"/home/<span class="variable">$USER</span>/Mail/Yahoo/Inbox"</span></div><div class="line">LOCK=<span class="string">"/home/<span class="variable">$USER</span>/桌面/新邮件.desktop"</span></div><div class="line">LOCKFILE=<span class="string">"/home/<span class="variable">$USER</span>/.byobu/bin/新邮件.desktop"</span></div><div class="line">MSGICON=<span class="string">"/usr/share/icons/Faenza/apps/scalable/gmail.svg"</span></div><div class="line">ICON_MAIL=<span class="string">"[新邮件!]"</span></div><div class="line">COLOR_SET=<span class="string">"#[fg=red bg=white bold]"</span></div><div class="line">COLOR_RESTORE=<span class="string">"#[fg=<span class="variable">$BYOBU_LIGHT</span> bg=<span class="variable">$BYOBU_DARK</span>]"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="string">"`ls <span class="variable">$MAILDIR</span>/new`"</span> = <span class="string">""</span> ] ; <span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"<span class="variable">$ICON_MAIL</span>"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line">	<span class="keyword">if</span> [ ! <span class="_">-f</span> <span class="variable">$LOCK</span> ]; <span class="keyword">then</span></div><div class="line">		cp <span class="variable">$LOCKFILE</span> <span class="variable">$LOCK</span></div><div class="line">		notify-send -i <span class="variable">$MSGICON</span> <span class="string">"新邮件"</span> <span class="variable">$ICON_MAIL</span></div><div class="line">	<span class="keyword">fi</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	rm <span class="_">-f</span> <span class="variable">$LOCK</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="built_in">cd</span> /home/<span class="variable">$USER</span>/Mail/rss/</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="keyword">if</span> [ ! <span class="string">"`ls <span class="variable">$i</span>/new`"</span> = <span class="string">""</span> ] ; <span class="keyword">then</span></div><div class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"[<span class="variable">$i</span>]"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line">	<span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-
+<p>Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can <a href="../../../../2014/11/11/show-colors-in-byobu-control-bar/">use colors in byobu script’s output</a>!<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/" data-id="citfjephe0005fzftb4etegu9" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/" data-id="citfjoo800005g2cy74uwxiqd" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -179,25 +179,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://abook.sourceforge.net/" target="_blank" rel="external">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/" target="_blank" rel="external">mutt</a> mail client.</p>
-<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.</p>
-<p>If you want to use <strong>Abook</strong> instead of aliases, remove the aliases configuration in <code>.muttrc</code> and add this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set query_command= &quot;abook --mutt-query &apos;%s&apos;&quot;</div><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div><div class="line">bind editor        &lt;Tab&gt; complete-query</div></pre></td></tr></table></figure>
-<p>But sadly, the command <code>abook --add-email-quiet</code> always gets names like “=?utf-8?B?55m+5ZCI5LuZ5a2Q?=” which is base64 encoded.</p>
-<p>To convert the base64 string and automatically fit the correct encoding, you can use a shell function:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">conv</span></span>() &#123;</div><div class="line">	<span class="built_in">eval</span> `<span class="built_in">echo</span> <span class="variable">$1</span> | awk -F <span class="string">'?'</span> <span class="string">'&#123; print "echo " $4 " | base64 -d | iconv -f " $2 &#125;'</span>`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Then:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=</div></pre></td></tr></table></figure>
-<p>Or a python script like this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python2</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> email</div><div class="line"><span class="keyword">import</span> email.header</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">abookdecode</span><span class="params">(origin_name)</span>:</span></div><div class="line">    name=email.Header.decode_header(origin_name)</div><div class="line">	<span class="keyword">if</span> name[<span class="number">0</span>][<span class="number">1</span>] <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">	    <span class="keyword">return</span> name[<span class="number">0</span>][<span class="number">0</span>]</div><div class="line">	<span class="keyword">else</span>:</div><div class="line">	    <span class="keyword">return</span> name[<span class="number">0</span>][<span class="number">0</span>].decode(name[<span class="number">0</span>][<span class="number">1</span>]).encode(<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="string">'__main__'</span>==__name__:</div><div class="line">	infile=open(sys.argv[<span class="number">1</span>],<span class="string">"r"</span>)</div><div class="line">    content=infile.readlines()</div><div class="line">    infile.close()</div><div class="line">    outfile=open(sys.argv[<span class="number">1</span>],<span class="string">"wb"</span>)</div><div class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> content:</div><div class="line">	<span class="keyword">if</span> line[<span class="number">0</span>:<span class="number">4</span>]==<span class="string">'name'</span>:</div><div class="line">	    outfile.write(line[<span class="number">0</span>:<span class="number">5</span>]+abookdecode(line[<span class="number">5</span>:<span class="number">-1</span>])+<span class="string">'\n'</span>)</div><div class="line">	    <span class="keyword">else</span>:</div><div class="line">		outfile.write(line)</div><div class="line">    outfile.close()</div></pre></td></tr></table></figure>
-<p>And then change your <code>.muttrc</code> to call the script:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet &amp;&amp; abook-decode ~/.abook/addressbook&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div></pre></td></tr></table></figure>
-<p>Now the addressbook will be written correctly.</p>
-
+        <p><a href="http://abook.sourceforge.net/">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/">mutt</a> mail client.</p>
+<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook">ArchWiki</a>.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/17/auto-convert-the-base64-code-into-utf-8/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjephl0008fzftilbhotjy" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjoo870008g2cy7ygotag2" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -234,19 +226,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added <code>~/.gem/ruby/2.1.0/bin</code> to <code>$PATH</code>.</p>
-<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.</p>
-<p>Refer to this <a href="http://forum.ubuntu.com.cn/viewtopic.php?f=48&amp;t=466400" target="_blank" rel="external">post</a>, the output of <code>ruby -e &#39;puts $LOAD_PATH&#39;</code> includes what I need.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/usr/lib/ruby/site_ruby/2.2.0</div><div class="line">/usr/lib/ruby/site_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/site_ruby</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/vendor_ruby</div><div class="line">/usr/lib/ruby/2.2.0</div><div class="line">/usr/lib/ruby/2.2.0/x86_64-linux</div></pre></td></tr></table></figure>
-<p>Then use <code>sed</code> and <code>grep</code> to find it out.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">'puts $LOAD_PATH'</span> | sed <span class="string">"s/\/usr\/lib\/ruby\///g"</span> |grep <span class="string">'^[0-9\.]*$'</span></div></pre></td></tr></table></figure>
-<p>Finally I added the following line to <code>.zshrc</code> and it works fine.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ruby_version=`ruby <span class="_">-e</span> <span class="string">'puts $LOAD_PATH'</span> | sed <span class="string">"s/\/usr\/lib\/ruby\///g"</span> |grep <span class="string">'^[0-9\.]*$'</span>`</div><div class="line">path=(<span class="variable">$path</span> ~/.gem/ruby/<span class="variable">$ruby_version</span>/bin)</div></pre></td></tr></table></figure>
-<p>BTW, this script can also be used in the PKGBUILD of ruby gem packages.</p>
-
+<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/29/a-simple-script-to-check-your-ruby-version/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/" data-id="citfjephi0006fzftkqnqn4qd" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/" data-id="citfjoo840006g2cy036u9cv8" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -283,16 +272,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="byobu.co">Byobu</a> is a frontend for screen or tmux.</p>
-<p>But the custom script sample in the manual page does not working in tmux.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"\005&#123;= bw&#125;%s\005&#123;-&#125;\n"</span> <span class="string">"<span class="variable">$(uname -r)</span>"</span></div></pre></td></tr></table></figure>
-<p>Actually, writing it in tmux’s way is ok.</p>
-<p>Here is an example for showing the Wifi name with colors.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line">COLOR_SET=<span class="string">"#[fg=white bg=blue bold]"</span></div><div class="line">COLOR_RESTORE=<span class="string">"#[fg=<span class="variable">$BYOBU_LIGHT</span> bg=<span class="variable">$BYOBU_DARK</span>]"</span></div><div class="line">out=`iwconfig <span class="variable">$MONITORED_NETWORK</span> 2&gt;/dev/null | awk <span class="string">'$0 ~ /[ ]*SSID/ &#123; sub(/.*[:]/,"",$4); printf("ssid=%s\n", $4); &#125;'</span>`</div><div class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$out</span>"</span></div><div class="line"><span class="keyword">if</span> [ ! <span class="string">"<span class="variable">$ssid</span>"</span> = <span class="string">"off/any"</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"<span class="variable">$ssid</span>"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-
+<p>But the custom script sample in the manual page does not working in tmux.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/11/show-colors-in-byobu-control-bar/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/" data-id="citfjepih000jfzft5q9r8lof" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/" data-id="citfjoo8r000jg2cyjjwuv4f5" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/#disqus_thread" class="article-comment-link">Comments</a>
       

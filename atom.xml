@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbei.li/"/>
-  <updated>2016-09-23T08:59:44.642Z</updated>
+  <updated>2016-09-23T09:07:35.440Z</updated>
   <id>http://jingbei.li/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbei.li/2016/09/18/%E8%BF%81%E7%A7%BB%E8%87%B3hexo/"/>
     <id>http://jingbei.li/2016/09/18/迁移至hexo/</id>
     <published>2016-09-18T19:05:06.000Z</published>
-    <updated>2016-09-23T08:59:44.642Z</updated>
+    <updated>2016-09-23T09:07:35.440Z</updated>
     
     <content type="html"><![CDATA[<p>如题，blog由jekyll迁移至hexo</p>
 <p>使用travis.ci进行编译和发布，所以并不需要额外的服务器托管。</p>
@@ -50,10 +50,10 @@
     <link href="http://jingbei.li/2016/01/03/raspberry-pi-android-robot/"/>
     <id>http://jingbei.li/2016/01/03/raspberry-pi-android-robot/</id>
     <published>2016-01-03T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>呼！终于从deadline里面爬出来一会儿让我有时间把这个之前开的坑填了。。</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>怎么想起来做这个的呢。。一开始是我的师兄的《人工智能基础理论选讲》课，说是要做大作业，做啥都行，软硬都能报销。<br>然后就引起我兴趣，为啥不借此机会好好地做(mai)开(mai)发(mai)呢。。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>怎么想起来做这个的呢。。一开始是我的师兄的《人工智能基础理论选讲》课，说是要做大作业，做啥都行，软硬都能报销。<br>然后就引起我兴趣，为啥不借此机会好好地做(mai)开(mai)发(mai)呢。。<br><a id="more"></a></p>
 <p>下一个问题就是做什么，第一反应，要有实用性。扫地机好了！可是听说别的组也要做扫地机，算了。。</p>
 <p>后来想地上跑的不行，咱们就来天上飞的吧！搞一个智能无人机好了。正看着大四轴呢，老师架不住了。。说尽量别过1k。。</p>
 <p>得得得，慢慢想吧，这时候我从知乎上看到了这么个东西</p>
@@ -179,7 +179,7 @@
     <summary type="html">
     
       &lt;p&gt;呼！终于从deadline里面爬出来一会儿让我有时间把这个之前开的坑填了。。&lt;/p&gt;
-&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Intr
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;p&gt;怎么想起来做这个的呢。。一开始是我的师兄的《人工智能基础理论选讲》课，说是要做大作业，做啥都行，软硬都能报销。&lt;br&gt;然后就引起我兴趣，为啥不借此机会好好地做(mai)开(mai)发(mai)呢。。&lt;br&gt;
     
     </summary>
     
@@ -193,10 +193,10 @@
     <link href="http://jingbei.li/2016/01/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%89%8B%E6%B3%95%E8%A7%A3OJ%E9%A2%98/"/>
     <id>http://jingbei.li/2016/01/02/面向对象手法解OJ题/</id>
     <published>2016-01-02T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.642Z</updated>
+    <updated>2016-09-23T09:07:35.440Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>这个也是我给我们学校C++课程出的一个题，本来是个很简单的题目。。<br>为了考语法暴力面向对象。。。出的我自己都恶心的不行不行得了。<br>帮我检查bug的NOI大神看了以后表示“写的太好看了，我都看不懂了”。。</p>
-<p>唉。。引用Linus Torvalds大神的一句名言</p>
+<p>唉。。引用Linus Torvalds大神的一句名言<br><a id="more"></a></p>
 <blockquote>
 <p>Talk is cheap. Show me the code.</p>
 <p>多说无益，放码过来。</p>
@@ -210,7 +210,8 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;这个也是我给我们学校C++课程出的一个题，本来是个很简单的题
+      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;这个也是我给我们学校C++课程出的一个题，本来是个很简单的题目。。&lt;br&gt;为了考语法暴力面向对象。。。出的我自己都恶心的不行不行得了。&lt;br&gt;帮我检查bug的NOI大神看了以后表示“写的太好看了，我都看不懂了”。。&lt;/p&gt;
+&lt;p&gt;唉。。引用Linus Torvalds大神的一句名言&lt;br&gt;
     
     </summary>
     
@@ -224,10 +225,11 @@
     <link href="http://jingbei.li/2016/01/02/%E8%AE%BA%E5%A6%82%E4%BD%95%E7%BB%99%E4%B8%80%E9%97%A8%E8%AF%BE%E5%87%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A%E5%8F%8A%E8%AF%84%E6%B5%8B%E7%B3%BB%E7%BB%9F/"/>
     <id>http://jingbei.li/2016/01/02/论如何给一门课出大作业及评测系统/</id>
     <published>2016-01-02T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.440Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。</p>
 <p>另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。<br>当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。</p>
+<a id="more"></a>
 <p>然后我就想起了一句经验之谈：每个程序设计语言都有他设计的渣的地方。。一查，果然是java，c#，oc什么的都把这个玩意去了，嗯。。yahaliyahali。。</p>
 <p>所以这玩意我就耿耿于怀了半个学期，心想一定要和大家分享一下。。</p>
 <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>下述两个类用来模拟一个分布式存储系统，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//server.h</span></div><div class="line"><span class="keyword">class</span> Server &#123;</div><div class="line">	<span class="keyword">public</span>:</div><div class="line">		Server() &#123;&#125;</div><div class="line">		~Server() &#123;&#125;</div><div class="line">		<span class="function"><span class="keyword">bool</span> <span class="title">UpdateTable</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;content, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;tableName)</span></span>;</div><div class="line">	<span class="keyword">protected</span>:</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="keyword">size_t</span>, *Worker&gt; mWorkers;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">size_t</span>&gt; &gt; mTables;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
@@ -245,7 +247,8 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;本来是我的一门课的作业。。看到助教给的评测demo以后深受启
+      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。&lt;/p&gt;
+&lt;p&gt;另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。&lt;br&gt;当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。&lt;/p&gt;
     
     </summary>
     
@@ -259,10 +262,11 @@
     <link href="http://jingbei.li/2015/12/29/%E6%88%91%E6%9D%A5%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%A7%91%E6%99%AE%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E5%8F%ABC%E6%A8%A1%E6%8B%9F%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>http://jingbei.li/2015/12/29/我来给大家科普一下什么叫C模拟面向对象/</id>
     <published>2015-12-29T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.440Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>唉。。这个题本来是我给本校一门C++的课出的期末考试题，无奈被批”平常老嘱咐不要写C风格的程序”，然后就被干掉了。。但是这个技能本身还是有一定意义的，在此我就直接把原题目的空都填好了分享给大家。</p>
 <p>注：下面这堆中，声明都是真的，实现都是我口胡的。最近口胡能力越来越强了。。。</p>
+<a id="more"></a>
 <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>Pebble是一款于2013年初上市的智能手表，具有一块类似Kindle的黑白电子墨水屏，支持蓝牙链接以便从手机获取消息通知。<br>相对于今天才上市的Apple Watch，Pebble更加开放和友好的开发环境赢得了广大Geek的青睐。</p>
 <p><img src="http://7sbplw.com1.z0.glb.clouddn.com/pebble.png" alt="pebble"><br><img src="http://7sbplw.com1.z0.glb.clouddn.com/pebble-watchface.png" alt="pebble-time"></p>
 <p>虽说开发环境比较友好，但是，并！没！有！C++编译器，基本的开发语言只有C。。。</p>
@@ -305,7 +309,8 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;唉。。这个题本来是我给本校一门C++的课出的期末考试题，无奈
+      &lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h4&gt;&lt;p&gt;唉。。这个题本来是我给本校一门C++的课出的期末考试题，无奈被批”平常老嘱咐不要写C风格的程序”，然后就被干掉了。。但是这个技能本身还是有一定意义的，在此我就直接把原题目的空都填好了分享给大家。&lt;/p&gt;
+&lt;p&gt;注：下面这堆中，声明都是真的，实现都是我口胡的。最近口胡能力越来越强了。。。&lt;/p&gt;
     
     </summary>
     
@@ -321,10 +326,10 @@
     <link href="http://jingbei.li/2015/10/01/sortbug/"/>
     <id>http://jingbei.li/2015/10/01/sortbug/</id>
     <published>2015-10-01T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>这个bug源自我的同学<a href="https://github.com/perypery" target="_blank" rel="external">perypery</a>，在和中文大战三百回合之后。。。</p>
-<h3 id="bug具体是这样的"><a href="#bug具体是这样的" class="headerlink" title="bug具体是这样的"></a>bug具体是这样的</h3><p>建立一个包含多的全角正反小括号的文件，一个一行：</p>
+<h3 id="bug具体是这样的"><a href="#bug具体是这样的" class="headerlink" title="bug具体是这样的"></a>bug具体是这样的</h3><p>建立一个包含多的全角正反小括号的文件，一个一行：<br><a id="more"></a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cat test.txt</div><div class="line">）</div><div class="line">）</div><div class="line">（</div><div class="line">（</div></pre></td></tr></table></figure>
 <p>然后<code>sort -u test.txt</code>，期望的输出肯定是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sort -u test.txt</div><div class="line">（</div><div class="line">）</div></pre></td></tr></table></figure>
@@ -346,8 +351,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;这个bug源自我的同学&lt;a href=&quot;https://github.com/perypery&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;perypery&lt;/a&gt;，在和中文大战三百回合之后。。。&lt;/p&gt;
-&lt;h3 id=&quot;bug具体是这样的&quot;&gt;&lt;a hr
+      &lt;p&gt;这个bug源自我的同学&lt;a href=&quot;https://github.com/perypery&quot;&gt;perypery&lt;/a&gt;，在和中文大战三百回合之后。。。&lt;/p&gt;
+&lt;h3 id=&quot;bug具体是这样的&quot;&gt;&lt;a href=&quot;#bug具体是这样的&quot; class=&quot;headerlink&quot; title=&quot;bug具体是这样的&quot;&gt;&lt;/a&gt;bug具体是这样的&lt;/h3&gt;&lt;p&gt;建立一个包含多的全角正反小括号的文件，一个一行：&lt;br&gt;
     
     </summary>
     
@@ -363,7 +368,7 @@
     <link href="http://jingbei.li/2015/09/23/Thinkpad-E430%E7%94%B5%E6%B1%A0%E4%B8%8D%E5%85%85%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
     <id>http://jingbei.li/2015/09/23/Thinkpad-E430电池不充电的问题的解决/</id>
     <published>2015-09-23T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>这个问题困扰我很长时间了，电池经常充到12%就卡住了。。多种折腾:</p>
 <ul>
@@ -372,7 +377,7 @@
 <li>电池扔冰箱里</li>
 <li>换电池</li>
 </ul>
-<p>均无效。最后无奈找微信号联想服务(LenovoServices)咨询，给了一个偏方：</p>
+<p>均无效。最后无奈找微信号联想服务(LenovoServices)咨询，给了一个偏方：<br><a id="more"></a></p>
 <ul>
 <li>关机</li>
 <li>把电池和电源都拔了</li>
@@ -393,7 +398,7 @@
 &lt;li&gt;电池扔冰箱里&lt;/li&gt;
 &lt;li&gt;换电池&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;均无效。最后无奈找微信号联想服务(LenovoS
+&lt;p&gt;均无效。最后无奈找微信号联想服务(LenovoServices)咨询，给了一个偏方：&lt;br&gt;
     
     </summary>
     
@@ -409,10 +414,11 @@
     <link href="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/"/>
     <id>http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/</id>
     <published>2015-08-26T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>感谢<a href="blog.rjjacky.info">rjjacky</a>把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。</p>
 <h3 id="首先是蛋疼的固件"><a href="#首先是蛋疼的固件" class="headerlink" title="首先是蛋疼的固件"></a>首先是蛋疼的固件</h3><p>openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。</p>
+<a id="more"></a>
 <p>openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了<code>make menuconfig</code>以外还有很多隐藏的地方要改。<br>经过几次编译，没有一次flash进去能用的。。。放弃。。</p>
 <p>后来从<a href="http://www.right.com.cn/Forum/thread-167159-1-1.html" target="_blank" rel="external">此处</a>下载了一个15.05-rc1带部分ipv6的固件，总算刷进去了。</p>
 <p>这个固件还算不错，wan和wan6直接就获取到ipv6地址了，lan内部能获取到一个由dhcpv6分配的有奇怪prefix的ipv6地址。</p>
@@ -459,7 +465,7 @@
     <summary type="html">
     
       &lt;p&gt;感谢&lt;a href=&quot;blog.rjjacky.info&quot;&gt;rjjacky&lt;/a&gt;把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。&lt;/p&gt;
-&lt;h3 id=&quot;首先是蛋疼的固件&quot;&gt;&lt;a href=&quot;#首先是蛋疼的固件&quot; class=&quot;heade
+&lt;h3 id=&quot;首先是蛋疼的固件&quot;&gt;&lt;a href=&quot;#首先是蛋疼的固件&quot; class=&quot;headerlink&quot; title=&quot;首先是蛋疼的固件&quot;&gt;&lt;/a&gt;首先是蛋疼的固件&lt;/h3&gt;&lt;p&gt;openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。&lt;/p&gt;
     
     </summary>
     
@@ -475,9 +481,9 @@
     <link href="http://jingbei.li/2015/07/30/custom-update-for-stargrail-lite-edition/"/>
     <id>http://jingbei.li/2015/07/30/custom-update-for-stargrail-lite-edition/</id>
     <published>2015-07-30T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
-    <content type="html"><![CDATA[<p>《星杯传说 破晓》原版的人物平衡性就有所欠缺，在扩展包《龙族复兴》加入以后这一点就变得更为突出。<br>为了让这个游戏还能玩，我个人对其中的人物技能做了下述调整。</p>
+    <content type="html"><![CDATA[<p>《星杯传说 破晓》原版的人物平衡性就有所欠缺，在扩展包《龙族复兴》加入以后这一点就变得更为突出。<br>为了让这个游戏还能玩，我个人对其中的人物技能做了下述调整。<br><a id="more"></a></p>
 <ul>
 <li>被增强的角色：游侠 占星家 皇家侍卫 血天使 暗之王女</li>
 <li><p>被削弱的角色：星纹师 龙之契约者 真龙女王</p>
@@ -536,10 +542,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;《星杯传说 破晓》原版的人物平衡性就有所欠缺，在扩展包《龙族复兴》加入以后这一点就变得更为突出。&lt;br&gt;为了让这个游戏还能玩，我个人对其中的人物技能做了下述调整。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;被增强的角色：游侠 占星家 皇家侍卫 血天使 暗之王女&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;被削
+      &lt;p&gt;《星杯传说 破晓》原版的人物平衡性就有所欠缺，在扩展包《龙族复兴》加入以后这一点就变得更为突出。&lt;br&gt;为了让这个游戏还能玩，我个人对其中的人物技能做了下述调整。&lt;br&gt;
     
     </summary>
     
@@ -553,9 +556,10 @@
     <link href="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/"/>
     <id>http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/</id>
     <published>2015-02-02T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>The <code>.htaccess</code> for <a href="http://yourls.org/" target="_blank" rel="external">YOURLS</a> will not work on Windows servers.<br>Although YOURLS has noticed that and will create <code>web.config</code> automatically on Windows, my first url shortener site, <a href="http://url.jingbei.li/" target="_blank" rel="external">url.jingbei.li</a> still cannot redirect links as my expect.</p>
+<a id="more"></a>
 <p>The reason is the Windows server I used is an old IIS server not a IIS7 server, the rewrite rules file should be <code>httpd.ini</code>, not <code>web.config</code>.</p>
 <p>And <code>REQUEST_FILENAME</code> does not check the local files because it is relative. The current solution is writing all the file names and directory name manually to <code>httpd.ini</code>. It is a little silly, but works.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[ISAPI_Rewrite]</div><div class="line">RewriteRule /admin(.*) /admin$1 [L]</div><div class="line">RewriteRule /css(.*) /css$1 [L]</div><div class="line">RewriteRule /images(.*) /images$1 [L]</div><div class="line">RewriteRule /includes(.*) /includes$1 [L]</div><div class="line">RewriteRule /js(.*) /js$1 [L]</div><div class="line">RewriteRule /pages(.*) /pages$1 [L]</div><div class="line">RewriteRule /user(.*) /user$1 [L]</div><div class="line">RewriteRule /(.*).html /$1.html [L]</div><div class="line">RewriteRule /(.*).php /$1.php [L]</div><div class="line">RewriteRule /.+ /yourls-loader.php [L]</div></pre></td></tr></table></figure>
@@ -564,7 +568,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;The &lt;code&gt;.htaccess&lt;/code&gt; for &lt;a href=&quot;http://yourls.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YOURLS&lt;/a&gt; will not work on Windows servers.&lt;b
+      &lt;p&gt;The &lt;code&gt;.htaccess&lt;/code&gt; for &lt;a href=&quot;http://yourls.org/&quot;&gt;YOURLS&lt;/a&gt; will not work on Windows servers.&lt;br&gt;Although YOURLS has noticed that and will create &lt;code&gt;web.config&lt;/code&gt; automatically on Windows, my first url shortener site, &lt;a href=&quot;http://url.jingbei.li/&quot;&gt;url.jingbei.li&lt;/a&gt; still cannot redirect links as my expect.&lt;/p&gt;
     
     </summary>
     
@@ -582,7 +586,7 @@
     <link href="http://jingbei.li/2015/01/26/moved-to-jingbeili/"/>
     <id>http://jingbei.li/2015/01/26/moved-to-jingbeili/</id>
     <published>2015-01-26T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p><code>.li</code> is the ccTLD(Internet country code top-level domain) for Liechtenstein. I first saw this domain is at <a href="http://www.iisp.com" target="_blank" rel="external">iisp.com</a>. The price is pretty high(about $40/year) and made me give up.</p>
 <p>It so happened that this domain is also sold at <a href="http://www.namecheap.com" target="_blank" rel="external">namecheap</a> with 14.99$/year. According to the significance of this domain to me and such a low price, I bought it with no second thought.</p>
@@ -605,11 +609,10 @@
     <link href="http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/"/>
     <id>http://jingbei.li/2015/01/23/a-simple-bat-script-to-splicing-videos/</id>
     <published>2015-01-23T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>Well, actually it’s a task given by my uncle. So the spirit of this script should be KISS, “Keep It Simple, Stupid”.</p>
-<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/" target="_blank" rel="external">static windows binary build</a>. A good start!</p>
-<p>The next part is writing a KISS script for windows. Because I’m not familiar to bat files at all, it took a while before I finally found out a trick to solve a problem about processing the files’ name.</p>
+<p>Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a <a href="http://ffmpeg.zeranoe.com/builds/" target="_blank" rel="external">static windows binary build</a>. A good start!<br><a id="more"></a><br>The next part is writing a KISS script for windows. Because I’m not familiar to bat files at all, it took a while before I finally found out a trick to solve a problem about processing the files’ name.</p>
 <p>The final version of the script looks like the following:</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@<span class="built_in">echo</span> off</div><div class="line"><span class="built_in">cd</span> /d %~dp0</div><div class="line"><span class="built_in">set</span> ffmpeg=bin\ffmpeg.exe</div><div class="line"><span class="built_in">del</span> filelist.txt</div><div class="line"><span class="built_in">del</span> splicing.mkv</div><div class="line">:LOOP</div><div class="line"><span class="keyword">IF</span> [%<span class="number">1</span>]==[] <span class="keyword">GOTO</span> END</div><div class="line">	<span class="built_in">set</span> filename=%<span class="number">1</span></div><div class="line">	<span class="built_in">echo</span> file ^'%~<span class="number">1</span>^' &gt;&gt;filelist.txt </div><div class="line">	<span class="built_in">SHIFT</span></div><div class="line"><span class="keyword">GOTO</span> LOOP</div><div class="line">:END</div><div class="line"><span class="variable">%ffmpeg%</span> -f concat -i filelist.txt -c <span class="built_in">copy</span> splicing.mkv</div><div class="line"><span class="built_in">rename</span> splicing.mkv spliced.mkv</div><div class="line"><span class="built_in">del</span> filelist.txt</div></pre></td></tr></table></figure>
 <p>The trick is using <code>%~1</code> to remove the <code>&quot;</code> around the strings with spaces. Then force adding <code>&#39;</code> around all the filenames or else the <code>\</code> will be escaped.</p>
@@ -619,7 +622,7 @@
     <summary type="html">
     
       &lt;p&gt;Well, actually it’s a task given by my uncle. So the spirit of this script should be KISS, “Keep It Simple, Stupid”.&lt;/p&gt;
-&lt;p&gt;Instead of GU
+&lt;p&gt;Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a &lt;a href=&quot;http://ffmpeg.zeranoe.com/builds/&quot;&gt;static windows binary build&lt;/a&gt;. A good start!&lt;br&gt;
     
     </summary>
     
@@ -639,10 +642,10 @@
     <link href="http://jingbei.li/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/"/>
     <id>http://jingbei.li/2015/01/09/a-simple-byobu-script-to-notify-your-new-mails-and-feeds/</id>
     <published>2015-01-09T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>After <a href="../../../../2014/12/29/using-rssdrop-to-read-feeds-in-mutt/">delivering all the feeds to Maildirs by rssdrop</a>, I also need a notification daemon in my byobu shell.</p>
-<p>Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can <a href="../../../../2014/11/11/show-colors-in-byobu-control-bar/">use colors in byobu script’s output</a>!</p>
+<p>Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can <a href="../../../../2014/11/11/show-colors-in-byobu-control-bar/">use colors in byobu script’s output</a>!<br><a id="more"></a></p>
 <p><img src="http://7sbplw.com1.z0.glb.clouddn.com/screenshot-20150109_155440.png" alt="img"></p>
 <p>Here is my notification script at <code>~/.byobu/bin/5_mail</code>. 5 means checking every 5 seconds. Byobu will force all the scripts those period is shorter than 5 seconds to run as 5.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line">MAILDIR=<span class="string">"/home/<span class="variable">$USER</span>/Mail/Yahoo/Inbox"</span></div><div class="line">LOCK=<span class="string">"/home/<span class="variable">$USER</span>/桌面/新邮件.desktop"</span></div><div class="line">LOCKFILE=<span class="string">"/home/<span class="variable">$USER</span>/.byobu/bin/新邮件.desktop"</span></div><div class="line">MSGICON=<span class="string">"/usr/share/icons/Faenza/apps/scalable/gmail.svg"</span></div><div class="line">ICON_MAIL=<span class="string">"[新邮件!]"</span></div><div class="line">COLOR_SET=<span class="string">"#[fg=red bg=white bold]"</span></div><div class="line">COLOR_RESTORE=<span class="string">"#[fg=<span class="variable">$BYOBU_LIGHT</span> bg=<span class="variable">$BYOBU_DARK</span>]"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="string">"`ls <span class="variable">$MAILDIR</span>/new`"</span> = <span class="string">""</span> ] ; <span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"<span class="variable">$ICON_MAIL</span>"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line">	<span class="keyword">if</span> [ ! <span class="_">-f</span> <span class="variable">$LOCK</span> ]; <span class="keyword">then</span></div><div class="line">		cp <span class="variable">$LOCKFILE</span> <span class="variable">$LOCK</span></div><div class="line">		notify-send -i <span class="variable">$MSGICON</span> <span class="string">"新邮件"</span> <span class="variable">$ICON_MAIL</span></div><div class="line">	<span class="keyword">fi</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	rm <span class="_">-f</span> <span class="variable">$LOCK</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="built_in">cd</span> /home/<span class="variable">$USER</span>/Mail/rss/</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="keyword">if</span> [ ! <span class="string">"`ls <span class="variable">$i</span>/new`"</span> = <span class="string">""</span> ] ; <span class="keyword">then</span></div><div class="line">		<span class="built_in">echo</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"[<span class="variable">$i</span>]"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line">	<span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
@@ -650,7 +653,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;After &lt;a href=&quot;../../../../2014/12/29/using-rssdrop-to-read-feeds-in-mutt/&quot;&gt;delivering all the feeds to Maildirs by rssdrop&lt;/a&gt;, I also n
+      &lt;p&gt;After &lt;a href=&quot;../../../../2014/12/29/using-rssdrop-to-read-feeds-in-mutt/&quot;&gt;delivering all the feeds to Maildirs by rssdrop&lt;/a&gt;, I also need a notification daemon in my byobu shell.&lt;/p&gt;
+&lt;p&gt;Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can &lt;a href=&quot;../../../../2014/11/11/show-colors-in-byobu-control-bar/&quot;&gt;use colors in byobu script’s output&lt;/a&gt;!&lt;br&gt;
     
     </summary>
     
@@ -670,10 +674,11 @@
     <link href="http://jingbei.li/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/"/>
     <id>http://jingbei.li/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/</id>
     <published>2014-12-29T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<h3 id="rssdrop"><a href="#rssdrop" class="headerlink" title="rssdrop"></a>rssdrop</h3><p>rssdrop is a perl script to deliver feeds to Maildirs. The <a href="http://search.cpan.org/~acg/rssdrop/" target="_blank" rel="external">origin script</a> is out of date and very buggy. So I create a <a href="https://github.com/petronny/rssdrop" target="_blank" rel="external">fork</a> and fixed lots of problems.</p>
 <h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><p>The dependencies are <code>perl-xml-simple</code>, <code>perl-date-manip</code> and <code>perl-lwp-protocol-https</code>.</p>
+<a id="more"></a>
 <p>If you have solved the dependencies, clone my fork and rssdrop just works:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/petronny/rssdrop</div></pre></td></tr></table></figure>
 <p>If you are using Archlinux, just install the <code>rssdrop</code> package from AUR.</p>
@@ -696,7 +701,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;rssdrop&quot;&gt;&lt;a href=&quot;#rssdrop&quot; class=&quot;headerlink&quot; title=&quot;rssdrop&quot;&gt;&lt;/a&gt;rssdrop&lt;/h3&gt;&lt;p&gt;rssdrop is a perl script to deliver feeds to Maild
+      &lt;h3 id=&quot;rssdrop&quot;&gt;&lt;a href=&quot;#rssdrop&quot; class=&quot;headerlink&quot; title=&quot;rssdrop&quot;&gt;&lt;/a&gt;rssdrop&lt;/h3&gt;&lt;p&gt;rssdrop is a perl script to deliver feeds to Maildirs. The &lt;a href=&quot;http://search.cpan.org/~acg/rssdrop/&quot;&gt;origin script&lt;/a&gt; is out of date and very buggy. So I create a &lt;a href=&quot;https://github.com/petronny/rssdrop&quot;&gt;fork&lt;/a&gt; and fixed lots of problems.&lt;/p&gt;
+&lt;h4 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h4&gt;&lt;p&gt;The dependencies are &lt;code&gt;perl-xml-simple&lt;/code&gt;, &lt;code&gt;perl-date-manip&lt;/code&gt; and &lt;code&gt;perl-lwp-protocol-https&lt;/code&gt;.&lt;/p&gt;
     
     </summary>
     
@@ -714,10 +720,10 @@
     <link href="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/"/>
     <id>http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/</id>
     <published>2014-12-17T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://abook.sourceforge.net/" target="_blank" rel="external">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/" target="_blank" rel="external">mutt</a> mail client.</p>
-<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.</p>
+<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.<br><a id="more"></a></p>
 <p>If you want to use <strong>Abook</strong> instead of aliases, remove the aliases configuration in <code>.muttrc</code> and add this:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set query_command= &quot;abook --mutt-query &apos;%s&apos;&quot;</div><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div><div class="line">bind editor        &lt;Tab&gt; complete-query</div></pre></td></tr></table></figure>
 <p>But sadly, the command <code>abook --add-email-quiet</code> always gets names like “=?utf-8?B?55m+5ZCI5LuZ5a2Q?=” which is base64 encoded.</p>
@@ -734,7 +740,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://abook.sourceforge.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Abook&lt;/a&gt; is a text-based addressbook program designed to use with
+      &lt;p&gt;&lt;a href=&quot;http://abook.sourceforge.net/&quot;&gt;Abook&lt;/a&gt; is a text-based addressbook program designed to use with &lt;a href=&quot;http://www.mutt.org/&quot;&gt;mutt&lt;/a&gt; mail client.&lt;/p&gt;
+&lt;p&gt;There is a chapter about using abook with mutt in the &lt;a href=&quot;https://wiki.archlinux.org/index.php/Mutt#Abook&quot;&gt;ArchWiki&lt;/a&gt;.&lt;br&gt;
     
     </summary>
     
@@ -756,11 +763,10 @@
     <link href="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/"/>
     <id>http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/</id>
     <published>2014-11-29T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added <code>~/.gem/ruby/2.1.0/bin</code> to <code>$PATH</code>.</p>
-<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.</p>
-<p>Refer to this <a href="http://forum.ubuntu.com.cn/viewtopic.php?f=48&amp;t=466400" target="_blank" rel="external">post</a>, the output of <code>ruby -e &#39;puts $LOAD_PATH&#39;</code> includes what I need.</p>
+<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.<br><a id="more"></a><br>Refer to this <a href="http://forum.ubuntu.com.cn/viewtopic.php?f=48&amp;t=466400" target="_blank" rel="external">post</a>, the output of <code>ruby -e &#39;puts $LOAD_PATH&#39;</code> includes what I need.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/usr/lib/ruby/site_ruby/2.2.0</div><div class="line">/usr/lib/ruby/site_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/site_ruby</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/vendor_ruby</div><div class="line">/usr/lib/ruby/2.2.0</div><div class="line">/usr/lib/ruby/2.2.0/x86_64-linux</div></pre></td></tr></table></figure>
 <p>Then use <code>sed</code> and <code>grep</code> to find it out.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">'puts $LOAD_PATH'</span> | sed <span class="string">"s/\/usr\/lib\/ruby\///g"</span> |grep <span class="string">'^[0-9\.]*$'</span></div></pre></td></tr></table></figure>
@@ -771,7 +777,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added &lt;code&gt;~/.gem/ruby/2.1.0/bin&lt;/code&gt;
+      &lt;p&gt;Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added &lt;code&gt;~/.gem/ruby/2.1.0/bin&lt;/code&gt; to &lt;code&gt;$PATH&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Although the ruby version is &lt;code&gt;2.1.5&lt;/code&gt;, it uses &lt;code&gt;2.1.0&lt;/code&gt; as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.&lt;br&gt;
     
     </summary>
     
@@ -789,10 +796,10 @@
     <link href="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/"/>
     <id>http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/</id>
     <published>2014-11-11T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p><a href="byobu.co">Byobu</a> is a frontend for screen or tmux.</p>
-<p>But the custom script sample in the manual page does not working in tmux.</p>
+<p>But the custom script sample in the manual page does not working in tmux.<br><a id="more"></a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"\005&#123;= bw&#125;%s\005&#123;-&#125;\n"</span> <span class="string">"<span class="variable">$(uname -r)</span>"</span></div></pre></td></tr></table></figure>
 <p>Actually, writing it in tmux’s way is ok.</p>
 <p>Here is an example for showing the Wifi name with colors.</p>
@@ -802,7 +809,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;byobu.co&quot;&gt;Byobu&lt;/a&gt; is a frontend for screen or tmux.&lt;/p&gt;
-&lt;p&gt;But the custom script sample in the manual page does not working in
+&lt;p&gt;But the custom script sample in the manual page does not working in tmux.&lt;br&gt;
     
     </summary>
     
@@ -822,10 +829,11 @@
     <link href="http://jingbei.li/2014/10/21/running-qqdownload-prefectly-under-linux/"/>
     <id>http://jingbei.li/2014/10/21/running-qqdownload-prefectly-under-linux/</id>
     <published>2014-10-21T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://xf.qq.com/index.html" target="_blank" rel="external">QQDownload</a>(QQ旋风, which means “QQ tornado”) is a download manager and bittorrent client developed by Tencent Holdings Ltd.</p>
 <p>Comparing with its main competitor, Xunlei, QQDownload is more easier to handle by wine.</p>
+<a id="more"></a>
 <p>Here is a tutorial for running QQDownload 4.8 Beta using wine:</p>
 <ol>
 <li><p>Create a new 32-bit wineprefix</p>
@@ -844,7 +852,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://xf.qq.com/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;QQDownload&lt;/a&gt;(QQ旋风, which means “QQ tornado”) is a download manager
+      &lt;p&gt;&lt;a href=&quot;http://xf.qq.com/index.html&quot;&gt;QQDownload&lt;/a&gt;(QQ旋风, which means “QQ tornado”) is a download manager and bittorrent client developed by Tencent Holdings Ltd.&lt;/p&gt;
+&lt;p&gt;Comparing with its main competitor, Xunlei, QQDownload is more easier to handle by wine.&lt;/p&gt;
     
     </summary>
     
@@ -860,11 +869,11 @@
     <link href="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/"/>
     <id>http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/</id>
     <published>2013-12-14T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<p>狂调半宿代码，深感与硬件打交道坑爹之处．<br>现暂记几处，以免后人入坑．</p>
 <h3 id="cocos2dx的libtiff-a的main函数重定义"><a href="#cocos2dx的libtiff-a的main函数重定义" class="headerlink" title="cocos2dx的libtiff.a的main函数重定义"></a>cocos2dx的libtiff.a的main函数重定义</h3><p>这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.<br><a href="http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html" target="_blank" rel="external">参见此贴</a><br>后简直雪中送炭．</p>
-<p>现把我在自己的项目中的做法记下来：</p>
+<p>现把我在自己的项目中的做法记下来：<br><a id="more"></a></p>
 <ul>
 <li>切换到UnitTest分支</li>
 <li>做git下的proj.android/exteral到cocos2dx/sebomber/proj.android/exteral的软连接</li>
@@ -893,7 +902,8 @@
     <summary type="html">
     
       &lt;p&gt;狂调半宿代码，深感与硬件打交道坑爹之处．&lt;br&gt;现暂记几处，以免后人入坑．&lt;/p&gt;
-&lt;h3 id=&quot;cocos2dx的libtiff-a的main函数重定义&quot;&gt;&lt;a href=&quot;#cocos2dx的libtiff-a的main函数重定义&quot; class=&quot;headerlink
+&lt;h3 id=&quot;cocos2dx的libtiff-a的main函数重定义&quot;&gt;&lt;a href=&quot;#cocos2dx的libtiff-a的main函数重定义&quot; class=&quot;headerlink&quot; title=&quot;cocos2dx的libtiff.a的main函数重定义&quot;&gt;&lt;/a&gt;cocos2dx的libtiff.a的main函数重定义&lt;/h3&gt;&lt;p&gt;这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.&lt;br&gt;&lt;a href=&quot;http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html&quot;&gt;参见此贴&lt;/a&gt;&lt;br&gt;后简直雪中送炭．&lt;/p&gt;
+&lt;p&gt;现把我在自己的项目中的做法记下来：&lt;br&gt;
     
     </summary>
     
@@ -911,16 +921,17 @@
     <link href="http://jingbei.li/2013/12/14/using-astyle-to-format-cc-codes/"/>
     <id>http://jingbei.li/2013/12/14/using-astyle-to-format-cc-codes/</id>
     <published>2013-12-14T00:00:00.000Z</published>
-    <updated>2016-09-23T08:59:44.638Z</updated>
+    <updated>2016-09-23T09:07:35.436Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej</div></pre></td></tr></table></figure>
-<p>Here is a preview.</p>
+<p>Here is a preview.<br><a id="more"></a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __Hero_Bazzi__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __Hero_Bazzi__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cocos2d.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"HeroClass.hpp"</span></span></div><div class="line">USING_NS_CC;</div><div class="line"><span class="keyword">class</span> HeroBazzi: <span class="keyword">public</span> Hero&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">createhero</span><span class="params">(CCPoint a,<span class="keyword">float</span> scale,<span class="keyword">int</span> id,<span class="keyword">int</span> type)</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">void</span> HeroBazzi::createhero(CCPoint a,<span class="keyword">float</span> scale,<span class="keyword">int</span> id,<span class="keyword">int</span> type)</div><div class="line">&#123;</div><div class="line">	speed = <span class="number">5</span>;</div><div class="line">	direction = <span class="number">5</span>;</div><div class="line">	bubble_range = <span class="number">3</span>;</div><div class="line">	bubble_num = <span class="number">3</span>;</div><div class="line">	sca = scale;</div><div class="line">	idx = id;</div><div class="line">	islive = <span class="literal">true</span>;</div><div class="line">	isfree = <span class="literal">true</span>;</div><div class="line">	sprite = CCSprite::create();</div><div class="line">	sprite-&gt;setScale(scale);</div><div class="line">	sprite-&gt;setPosition(a);</div><div class="line">	<span class="keyword">if</span> (type == <span class="number">0</span>)</div><div class="line">		AniReader::read(<span class="string">"unit_bazzi.ani"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		AniReader::read(<span class="string">"unit_luxbazzi.ani"</span>);</div><div class="line">	num = AniReader::num;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">list</span>[i][j] = AniReader::<span class="built_in">list</span>[i][j];</div><div class="line">		&#125;</div><div class="line">	<span class="keyword">if</span>  (type == <span class="number">0</span>)</div><div class="line">		texture = CCTextureCache::sharedTextureCache()-&gt;addImage(<span class="string">"image/unit/unit_bazzi.png"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		texture = CCTextureCache::sharedTextureCache()-&gt;addImage(<span class="string">"image/unit/unit_luxbazzi.png"</span>);</div><div class="line">	animate = CCRepeatForever::create(CCAnimate::create(moveanimation(<span class="number">4</span>)));</div><div class="line">	sprite-&gt;runAction(animate);</div><div class="line">	action=<span class="literal">NULL</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;
+      &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Here is a preview.&lt;br&gt;
     
     </summary>
     

@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/index.html">
 <meta property="og:site_name" content="Jingbei Li's Blog">
 <meta property="og:description" content="The .htaccess for YOURLS will not work on Windows servers.Although YOURLS has noticed that and will create web.config automatically on Windows, my first url shortener site, url.jingbei.li still cannot">
-<meta property="og:updated_time" content="2016-09-23T08:59:44.638Z">
+<meta property="og:updated_time" content="2016-09-23T09:07:35.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The httpd.ini redirect rules for YOURLS">
 <meta name="twitter:description" content="The .htaccess for YOURLS will not work on Windows servers.Although YOURLS has noticed that and will create web.config automatically on Windows, my first url shortener site, url.jingbei.li still cannot">
@@ -90,6 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>The <code>.htaccess</code> for <a href="http://yourls.org/" target="_blank" rel="external">YOURLS</a> will not work on Windows servers.<br>Although YOURLS has noticed that and will create <code>web.config</code> automatically on Windows, my first url shortener site, <a href="http://url.jingbei.li/" target="_blank" rel="external">url.jingbei.li</a> still cannot redirect links as my expect.</p>
+<a id="more"></a>
 <p>The reason is the Windows server I used is an old IIS server not a IIS7 server, the rewrite rules file should be <code>httpd.ini</code>, not <code>web.config</code>.</p>
 <p>And <code>REQUEST_FILENAME</code> does not check the local files because it is relative. The current solution is writing all the file names and directory name manually to <code>httpd.ini</code>. It is a little silly, but works.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[ISAPI_Rewrite]</div><div class="line">RewriteRule /admin(.*) /admin$1 [L]</div><div class="line">RewriteRule /css(.*) /css$1 [L]</div><div class="line">RewriteRule /images(.*) /images$1 [L]</div><div class="line">RewriteRule /includes(.*) /includes$1 [L]</div><div class="line">RewriteRule /js(.*) /js$1 [L]</div><div class="line">RewriteRule /pages(.*) /pages$1 [L]</div><div class="line">RewriteRule /user(.*) /user$1 [L]</div><div class="line">RewriteRule /(.*).html /$1.html [L]</div><div class="line">RewriteRule /(.*).php /$1.php [L]</div><div class="line">RewriteRule /.+ /yourls-loader.php [L]</div></pre></td></tr></table></figure>
@@ -98,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/" data-id="citfjepix000lfzft9fmvfk2c" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/" data-id="citfjoo8x000lg2cyrat6au4p" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/02/02/the-httpdini-redirect-rules-for-yourls/#disqus_thread" class="article-comment-link">Comments</a>
       

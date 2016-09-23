@@ -6,39 +6,18 @@
   <title>记sort中的一个bug | Jingbei Li&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这个bug源自我的同学perypery，在和中文大战三百回合之后。。。
-bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：
-12345$ cat test.txt））（（
-然后sort -u test.txt，期望的输出肯定是
-123$ sort -u test.txt（）
-但是实际上
-12$ sort -u a.txt）
-嗯？怎么回事？（哪里去了？
-多版本验证以及降级时遇到的问题">
+bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记sort中的一个bug">
 <meta property="og:url" content="http://jingbei.li/2015/10/01/sortbug/index.html">
 <meta property="og:site_name" content="Jingbei Li's Blog">
 <meta property="og:description" content="这个bug源自我的同学perypery，在和中文大战三百回合之后。。。
-bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：
-12345$ cat test.txt））（（
-然后sort -u test.txt，期望的输出肯定是
-123$ sort -u test.txt（）
-但是实际上
-12$ sort -u a.txt）
-嗯？怎么回事？（哪里去了？
-多版本验证以及降级时遇到的问题">
-<meta property="og:updated_time" content="2016-09-23T08:59:44.638Z">
+bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：">
+<meta property="og:updated_time" content="2016-09-23T09:07:35.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记sort中的一个bug">
 <meta name="twitter:description" content="这个bug源自我的同学perypery，在和中文大战三百回合之后。。。
-bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：
-12345$ cat test.txt））（（
-然后sort -u test.txt，期望的输出肯定是
-123$ sort -u test.txt（）
-但是实际上
-12$ sort -u a.txt）
-嗯？怎么回事？（哪里去了？
-多版本验证以及降级时遇到的问题">
+bug具体是这样的建立一个包含多的全角正反小括号的文件，一个一行：">
 <meta name="twitter:creator" content="@JingbeiLi">
   
     <link rel="alternate" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
@@ -114,7 +93,7 @@ bug具体是这样的建立一个包含多的全角正反小括号的文件，�
     <div class="article-entry" itemprop="articleBody">
       
         <p>这个bug源自我的同学<a href="https://github.com/perypery" target="_blank" rel="external">perypery</a>，在和中文大战三百回合之后。。。</p>
-<h3 id="bug具体是这样的"><a href="#bug具体是这样的" class="headerlink" title="bug具体是这样的"></a>bug具体是这样的</h3><p>建立一个包含多的全角正反小括号的文件，一个一行：</p>
+<h3 id="bug具体是这样的"><a href="#bug具体是这样的" class="headerlink" title="bug具体是这样的"></a>bug具体是这样的</h3><p>建立一个包含多的全角正反小括号的文件，一个一行：<br><a id="more"></a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cat test.txt</div><div class="line">）</div><div class="line">）</div><div class="line">（</div><div class="line">（</div></pre></td></tr></table></figure>
 <p>然后<code>sort -u test.txt</code>，期望的输出肯定是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sort -u test.txt</div><div class="line">（</div><div class="line">）</div></pre></td></tr></table></figure>
@@ -136,7 +115,7 @@ bug具体是这样的建立一个包含多的全角正反小括号的文件，�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/10/01/sortbug/" data-id="citfjepit000kfzftx21x90i8" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/10/01/sortbug/" data-id="citfjoo8u000kg2cy4w657yqr" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/10/01/sortbug/#disqus_thread" class="article-comment-link">Comments</a>
       

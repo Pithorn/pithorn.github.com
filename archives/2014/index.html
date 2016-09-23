@@ -87,31 +87,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="rssdrop"><a href="#rssdrop" class="headerlink" title="rssdrop"></a>rssdrop</h3><p>rssdrop is a perl script to deliver feeds to Maildirs. The <a href="http://search.cpan.org/~acg/rssdrop/" target="_blank" rel="external">origin script</a> is out of date and very buggy. So I create a <a href="https://github.com/petronny/rssdrop" target="_blank" rel="external">fork</a> and fixed lots of problems.</p>
+        <h3 id="rssdrop"><a href="#rssdrop" class="headerlink" title="rssdrop"></a>rssdrop</h3><p>rssdrop is a perl script to deliver feeds to Maildirs. The <a href="http://search.cpan.org/~acg/rssdrop/">origin script</a> is out of date and very buggy. So I create a <a href="https://github.com/petronny/rssdrop">fork</a> and fixed lots of problems.</p>
 <h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><p>The dependencies are <code>perl-xml-simple</code>, <code>perl-date-manip</code> and <code>perl-lwp-protocol-https</code>.</p>
-<p>If you have solved the dependencies, clone my fork and rssdrop just works:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/petronny/rssdrop</div></pre></td></tr></table></figure>
-<p>If you are using Archlinux, just install the <code>rssdrop</code> package from AUR.</p>
-<h4 id="Getting-start"><a href="#Getting-start" class="headerlink" title="Getting start"></a>Getting start</h4><h5 id="Initialize-rssdrop"><a href="#Initialize-rssdrop" class="headerlink" title="Initialize rssdrop"></a>Initialize rssdrop</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rssdrop --mailfolder path/to/mailfolder</div></pre></td></tr></table></figure>
-<h5 id="Subscribe-to-a-new-feed"><a href="#Subscribe-to-a-new-feed" class="headerlink" title="Subscribe to a new feed"></a>Subscribe to a new feed</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rssdrop <span class="_">-a</span> archlinux https://www.archlinux.org/feeds/news/</div></pre></td></tr></table></figure>
-<h5 id="Fetch-items-in-your-new-feed"><a href="#Fetch-items-in-your-new-feed" class="headerlink" title="Fetch items in your new feed"></a>Fetch items in your new feed</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rssdrop archlinux</div></pre></td></tr></table></figure>
-<h5 id="Unsubscribe"><a href="#Unsubscribe" class="headerlink" title="Unsubscribe"></a>Unsubscribe</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rssdrop <span class="_">-d</span> archlinux</div></pre></td></tr></table></figure>
-<h5 id="Fetch-all-new-items-in-all-feeds"><a href="#Fetch-all-new-items-in-all-feeds" class="headerlink" title="Fetch all new items in all feeds"></a>Fetch all new items in all feeds</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rssdrop</div></pre></td></tr></table></figure>
-<h3 id="Mutt"><a href="#Mutt" class="headerlink" title="Mutt"></a>Mutt</h3><p>This part is simple, you can navigate to your feeds maildir or add it to spoolfile in your <code>.muttrc</code>.</p>
-<p>But almost all the feed contents are html files, mutt will show them in plain text as default.<br>It’s not quite human readable so you need a <code>html2txt</code> script to convert it.</p>
-<h3 id="html2txt"><a href="#html2txt" class="headerlink" title="html2txt"></a>html2txt</h3><p>Refer to <a href="http://stromberg.dnsalias.org/~strombrg/mutt-html.html" target="_blank" rel="external">this blog</a>, <code>links</code> is a good choice because of its numbered links feature. I changed it to <code>elinks</code> for Chinese supporting. Make sure it’s executable, and on your <code>$PATH</code>.</p>
-<p>Here is an example of <code>html2txt</code>:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="comment"># for mutt to view html e-mails</span></div><div class="line"></div><div class="line">elinks -dump <span class="string">"file://<span class="variable">$@</span>"</span></div><div class="line"></div><div class="line"><span class="comment">#or</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#lynx -force_html -dump "$@"</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#or</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#w3m -T text/html -F -dump "$@"</span></div></pre></td></tr></table></figure>
-<p>You also need a <code>~/.mailcap</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># for mutt to view html e-mails</div><div class="line">text/html;html2txt %s; copiousoutput</div></pre></td></tr></table></figure>
-<p>And configure the following options in your <code>~/.muttrc</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># for viewing html e-mails inside mutt.  See also .mailcap</div><div class="line">auto_view text/html</div><div class="line">alternative_order text/enriched text/plain text text/html</div></pre></td></tr></table></figure>
-<p>Now you can read all the html mails in mutt, not only the feeds.</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/" data-id="citfjepj8000qfzftlwmtjuwh" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/" data-id="citfjoo94000qg2cylf1ykbpd" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/12/29/using-rssdrop-to-read-feeds-in-mutt/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -147,25 +133,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://abook.sourceforge.net/" target="_blank" rel="external">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/" target="_blank" rel="external">mutt</a> mail client.</p>
-<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.</p>
-<p>If you want to use <strong>Abook</strong> instead of aliases, remove the aliases configuration in <code>.muttrc</code> and add this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set query_command= &quot;abook --mutt-query &apos;%s&apos;&quot;</div><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div><div class="line">bind editor        &lt;Tab&gt; complete-query</div></pre></td></tr></table></figure>
-<p>But sadly, the command <code>abook --add-email-quiet</code> always gets names like “=?utf-8?B?55m+5ZCI5LuZ5a2Q?=” which is base64 encoded.</p>
-<p>To convert the base64 string and automatically fit the correct encoding, you can use a shell function:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">conv</span></span>() &#123;</div><div class="line">	<span class="built_in">eval</span> `<span class="built_in">echo</span> <span class="variable">$1</span> | awk -F <span class="string">'?'</span> <span class="string">'&#123; print "echo " $4 " | base64 -d | iconv -f " $2 &#125;'</span>`</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Then:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ conv name==?utf-8?B?55m+5ZCI5LuZ5a2Q?=</div></pre></td></tr></table></figure>
-<p>Or a python script like this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python2</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> email</div><div class="line"><span class="keyword">import</span> email.header</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">abookdecode</span><span class="params">(origin_name)</span>:</span></div><div class="line">    name=email.Header.decode_header(origin_name)</div><div class="line">	<span class="keyword">if</span> name[<span class="number">0</span>][<span class="number">1</span>] <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">	    <span class="keyword">return</span> name[<span class="number">0</span>][<span class="number">0</span>]</div><div class="line">	<span class="keyword">else</span>:</div><div class="line">	    <span class="keyword">return</span> name[<span class="number">0</span>][<span class="number">0</span>].decode(name[<span class="number">0</span>][<span class="number">1</span>]).encode(<span class="string">'utf-8'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="string">'__main__'</span>==__name__:</div><div class="line">	infile=open(sys.argv[<span class="number">1</span>],<span class="string">"r"</span>)</div><div class="line">    content=infile.readlines()</div><div class="line">    infile.close()</div><div class="line">    outfile=open(sys.argv[<span class="number">1</span>],<span class="string">"wb"</span>)</div><div class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> content:</div><div class="line">	<span class="keyword">if</span> line[<span class="number">0</span>:<span class="number">4</span>]==<span class="string">'name'</span>:</div><div class="line">	    outfile.write(line[<span class="number">0</span>:<span class="number">5</span>]+abookdecode(line[<span class="number">5</span>:<span class="number">-1</span>])+<span class="string">'\n'</span>)</div><div class="line">	    <span class="keyword">else</span>:</div><div class="line">		outfile.write(line)</div><div class="line">    outfile.close()</div></pre></td></tr></table></figure>
-<p>And then change your <code>.muttrc</code> to call the script:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet &amp;&amp; abook-decode ~/.abook/addressbook&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div></pre></td></tr></table></figure>
-<p>Now the addressbook will be written correctly.</p>
-
+        <p><a href="http://abook.sourceforge.net/">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/">mutt</a> mail client.</p>
+<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook">ArchWiki</a>.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/17/auto-convert-the-base64-code-into-utf-8/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjephl0008fzftilbhotjy" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjoo870008g2cy7ygotag2" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -202,19 +180,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added <code>~/.gem/ruby/2.1.0/bin</code> to <code>$PATH</code>.</p>
-<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.</p>
-<p>Refer to this <a href="http://forum.ubuntu.com.cn/viewtopic.php?f=48&amp;t=466400" target="_blank" rel="external">post</a>, the output of <code>ruby -e &#39;puts $LOAD_PATH&#39;</code> includes what I need.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/usr/lib/ruby/site_ruby/2.2.0</div><div class="line">/usr/lib/ruby/site_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/site_ruby</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0</div><div class="line">/usr/lib/ruby/vendor_ruby/2.2.0/x86_64-linux</div><div class="line">/usr/lib/ruby/vendor_ruby</div><div class="line">/usr/lib/ruby/2.2.0</div><div class="line">/usr/lib/ruby/2.2.0/x86_64-linux</div></pre></td></tr></table></figure>
-<p>Then use <code>sed</code> and <code>grep</code> to find it out.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">'puts $LOAD_PATH'</span> | sed <span class="string">"s/\/usr\/lib\/ruby\///g"</span> |grep <span class="string">'^[0-9\.]*$'</span></div></pre></td></tr></table></figure>
-<p>Finally I added the following line to <code>.zshrc</code> and it works fine.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ruby_version=`ruby <span class="_">-e</span> <span class="string">'puts $LOAD_PATH'</span> | sed <span class="string">"s/\/usr\/lib\/ruby\///g"</span> |grep <span class="string">'^[0-9\.]*$'</span>`</div><div class="line">path=(<span class="variable">$path</span> ~/.gem/ruby/<span class="variable">$ruby_version</span>/bin)</div></pre></td></tr></table></figure>
-<p>BTW, this script can also be used in the PKGBUILD of ruby gem packages.</p>
-
+<p>Although the ruby version is <code>2.1.5</code>, it uses <code>2.1.0</code> as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/29/a-simple-script-to-check-your-ruby-version/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/" data-id="citfjephi0006fzftkqnqn4qd" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/" data-id="citfjoo840006g2cy036u9cv8" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/11/29/a-simple-script-to-check-your-ruby-version/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -251,16 +226,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="byobu.co">Byobu</a> is a frontend for screen or tmux.</p>
-<p>But the custom script sample in the manual page does not working in tmux.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">printf</span> <span class="string">"\005&#123;= bw&#125;%s\005&#123;-&#125;\n"</span> <span class="string">"<span class="variable">$(uname -r)</span>"</span></div></pre></td></tr></table></figure>
-<p>Actually, writing it in tmux’s way is ok.</p>
-<p>Here is an example for showing the Wifi name with colors.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/sh -e</span></div><div class="line">COLOR_SET=<span class="string">"#[fg=white bg=blue bold]"</span></div><div class="line">COLOR_RESTORE=<span class="string">"#[fg=<span class="variable">$BYOBU_LIGHT</span> bg=<span class="variable">$BYOBU_DARK</span>]"</span></div><div class="line">out=`iwconfig <span class="variable">$MONITORED_NETWORK</span> 2&gt;/dev/null | awk <span class="string">'$0 ~ /[ ]*SSID/ &#123; sub(/.*[:]/,"",$4); printf("ssid=%s\n", $4); &#125;'</span>`</div><div class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$out</span>"</span></div><div class="line"><span class="keyword">if</span> [ ! <span class="string">"<span class="variable">$ssid</span>"</span> = <span class="string">"off/any"</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"<span class="variable">$COLOR_SET</span>"</span><span class="string">"<span class="variable">$ssid</span>"</span><span class="string">"<span class="variable">$COLOR_RESTORE</span>"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-
+<p>But the custom script sample in the manual page does not working in tmux.<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/11/show-colors-in-byobu-control-bar/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/" data-id="citfjepih000jfzft5q9r8lof" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/" data-id="citfjoo8r000jg2cyjjwuv4f5" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/11/11/show-colors-in-byobu-control-bar/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -296,27 +271,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://xf.qq.com/index.html" target="_blank" rel="external">QQDownload</a>(QQ旋风, which means “QQ tornado”) is a download manager and bittorrent client developed by Tencent Holdings Ltd.</p>
+        <p><a href="http://xf.qq.com/index.html">QQDownload</a>(QQ旋风, which means “QQ tornado”) is a download manager and bittorrent client developed by Tencent Holdings Ltd.</p>
 <p>Comparing with its main competitor, Xunlei, QQDownload is more easier to handle by wine.</p>
-<p>Here is a tutorial for running QQDownload 4.8 Beta using wine:</p>
-<ol>
-<li><p>Create a new 32-bit wineprefix</p>
-<p> export WINEARCH=win32<br> export WINEPREFIX=somewhere winetricks</p>
-</li>
-<li><p>If wine ask you to install <code>gecko</code> and <code>mono</code> plugins, permit it.</p>
-</li>
-<li>Install <code>windowscodecs</code> to your wineprefix using <code>winetricks</code> GUI.</li>
-<li>Then install <code>riched20</code>, <code>riched30</code> and <code>wininet</code> to your wineprefix using <code>winetricks</code> GUI.</li>
-<li>Finally you need a Chinese font for all charactors. The <code>fakeChinese</code> in <code>winetricks</code> is a good choice.</li>
-<li>Have fun! You may need a desktop launcher.</li>
-</ol>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>if you have permission to use the <a href="http://lixian.qq.com/login.html" target="_blank" rel="external">Tencent offline downloading</a>,<br>such as VIP account or gained LV8 in QQDownload, I recommend you to try out another python script, <a href="https://github.com/kikyous/xfdown" target="_blank" rel="external">xfdown</a>.</p>
-<p>Xfdown now has a awesome Tui with color support, wow.</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2014/10/21/running-qqdownload-prefectly-under-linux/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/10/21/running-qqdownload-prefectly-under-linux/" data-id="citfjepi8000hfzft2qe8zccd" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/10/21/running-qqdownload-prefectly-under-linux/" data-id="citfjoo8o000hg2cyipl8q4aw" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/10/21/running-qqdownload-prefectly-under-linux/#disqus_thread" class="article-comment-link">Comments</a>
       

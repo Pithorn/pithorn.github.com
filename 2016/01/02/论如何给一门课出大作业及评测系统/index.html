@@ -6,21 +6,18 @@
   <title>论如何给一门课出大作业及评测系统 | Jingbei Li&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Introduction本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。
-另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。
-然后我">
+另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论如何给一门课出大作业及评测系统">
 <meta property="og:url" content="http://jingbei.li/2016/01/02/论如何给一门课出大作业及评测系统/index.html">
 <meta property="og:site_name" content="Jingbei Li's Blog">
 <meta property="og:description" content="Introduction本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。
-另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。
-然后我">
-<meta property="og:updated_time" content="2016-09-23T08:59:44.638Z">
+另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。">
+<meta property="og:updated_time" content="2016-09-23T09:07:35.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论如何给一门课出大作业及评测系统">
 <meta name="twitter:description" content="Introduction本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。
-另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。
-然后我">
+另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。">
 <meta name="twitter:creator" content="@JingbeiLi">
   
     <link rel="alternate" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
@@ -97,6 +94,7 @@
       
         <h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>本来是我的一门课的作业。。看到助教给的评测demo以后深受启发，就拿去考小朋友了。</p>
 <p>另外友元也的确是一个神奇的存在。。我是本学期过了一半才代替我的室友(他有事)当了这门课的助教。<br>当时正好讲到友元，我第一次去答疑，顶门来一个人问我“友元blahblahblah”，我都愣了，啥？我混迹开源社区两年了，哪个西方国家的程序员写的代码我没有见过？就是没听说过友元这个东西。。。</p>
+<a id="more"></a>
 <p>然后我就想起了一句经验之谈：每个程序设计语言都有他设计的渣的地方。。一查，果然是java，c#，oc什么的都把这个玩意去了，嗯。。yahaliyahali。。</p>
 <p>所以这玩意我就耿耿于怀了半个学期，心想一定要和大家分享一下。。</p>
 <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>下述两个类用来模拟一个分布式存储系统，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//server.h</span></div><div class="line"><span class="keyword">class</span> Server &#123;</div><div class="line">	<span class="keyword">public</span>:</div><div class="line">		Server() &#123;&#125;</div><div class="line">		~Server() &#123;&#125;</div><div class="line">		<span class="function"><span class="keyword">bool</span> <span class="title">UpdateTable</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;content, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;tableName)</span></span>;</div><div class="line">	<span class="keyword">protected</span>:</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="keyword">size_t</span>, *Worker&gt; mWorkers;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">map</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">size_t</span>&gt; &gt; mTables;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
@@ -114,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2016/01/02/论如何给一门课出大作业及评测系统/" data-id="citfjepjh000ufzftpmq12ipn" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2016/01/02/论如何给一门课出大作业及评测系统/" data-id="citfjoo99000ug2cytp5sw0y1" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2016/01/02/论如何给一门课出大作业及评测系统/#disqus_thread" class="article-comment-link">Comments</a>
       

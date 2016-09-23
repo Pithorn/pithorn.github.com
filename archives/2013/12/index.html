@@ -88,36 +88,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>狂调半宿代码，深感与硬件打交道坑爹之处．<br>现暂记几处，以免后人入坑．</p>
-<h3 id="cocos2dx的libtiff-a的main函数重定义"><a href="#cocos2dx的libtiff-a的main函数重定义" class="headerlink" title="cocos2dx的libtiff.a的main函数重定义"></a>cocos2dx的libtiff.a的main函数重定义</h3><p>这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.<br><a href="http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html" target="_blank" rel="external">参见此贴</a><br>后简直雪中送炭．</p>
-<p>现把我在自己的项目中的做法记下来：</p>
-<ul>
-<li>切换到UnitTest分支</li>
-<li>做git下的proj.android/exteral到cocos2dx/sebomber/proj.android/exteral的软连接</li>
-<li>用git下的libtiff.a替换 cocos2d-x-2.1.5/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi/libtiff.a</li>
-</ul>
-<h4 id="在jni-main3-cpp内做gtest单元测试"><a href="#在jni-main3-cpp内做gtest单元测试" class="headerlink" title="在jni/main3.cpp内做gtest单元测试"></a>在jni/main3.cpp内做gtest单元测试</h4><p>编译使用原来的编译方式</p>
-<p>运行方式</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adb push cocos2d-x-2.1.5/sebomber/proj.android/libs/armeabi/libgame /data/</div><div class="line">adb shell</div><div class="line"><span class="built_in">export</span> GCOV_PREFIX=/sdcard/mycov</div><div class="line"><span class="built_in">cd</span> /data</div><div class="line">./libgame</div></pre></td></tr></table></figure>
-<ul>
-<li>运行结束后，生成的GCOV用的文件在/sdcard/mycov里</li>
-</ul>
-<h5 id="获取GCOV文件到home"><a href="#获取GCOV文件到home" class="headerlink" title="获取GCOV文件到home"></a>获取GCOV文件到home</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb pull /sdcard/mycov ~</div></pre></td></tr></table></figure>
-<p>将cocos2d-x-2.1.5/sebomber/proj.android/obj里面的.gcno文件<br>从手机里得到的.gcda, 和对应的.cpp文件放在一起<br>运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcov -b *.cpp</div></pre></td></tr></table></figure>
-<p>即可得到覆盖率报告及生成的报告文件</p>
-<p>其中，libtiff.a是要自己重编译的．里面的libgtest也要重编译．</p>
-<h3 id="gtest与cocos2dx冲突的问题"><a href="#gtest与cocos2dx冲突的问题" class="headerlink" title="gtest与cocos2dx冲突的问题"></a>gtest与cocos2dx冲突的问题</h3><p>感谢<a href="https://github.com/sfuku7/googletest_android_ndk-build" target="_blank" rel="external">github.com/sfuku7/googletest_android_ndk-build</a><br>给出了详尽的使用方式．</p>
-<p>不过里面自带的那个libgtest是不能直接用的．<br>由于cocos2dx在编译时使用了frtti优化，我在写cocos2dx项目的单元测试文件时要么gtest不能用，要么cocos2dx不能用．<br>蛋疼了好几个小时，饭都没吃．最后想到把libgtest也开启frtti重编译一下就应该兼容了．</p>
-<p>还是按照上面那个链接里面给出的googletest的编译方式<br>额外在googletest的jni/Application.mk中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">APP_CPPFLAGS := -frtti</div></pre></td></tr></table></figure>
-<p>然后做一个新的libgtest.</p>
-<p>放到那个项目的sample/test_project/external下对应的地方测试能用．</p>
-<p>按照sample/test_project/下的目录结构复制到cocos2dx的proj.android下，终于成功了．</p>
-
+<h3 id="cocos2dx的libtiff-a的main函数重定义"><a href="#cocos2dx的libtiff-a的main函数重定义" class="headerlink" title="cocos2dx的libtiff.a的main函数重定义"></a>cocos2dx的libtiff.a的main函数重定义</h3><p>这样自己写的c文件都不能有main函数，gtest和gcov都不能用了.<br><a href="http://blog.linguofeng.com/archive/2013/04/17/cocos2d-x-ndkgdb.html">参见此贴</a><br>后简直雪中送炭．</p>
+<p>现把我在自己的项目中的做法记下来：<br>
+        
+          <p class="article-more-link">
+            <a href="/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/" data-id="citfjepgu0002fzftmb49bnze" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/" data-id="citfjoo7o0002g2cy4lb4kkm0" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2013/12/14/Using-gtest-and-gcov-in-cocos2dx/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -154,13 +135,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej</div></pre></td></tr></table></figure>
-<p>Here is a preview.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __Hero_Bazzi__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __Hero_Bazzi__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cocos2d.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"HeroClass.hpp"</span></span></div><div class="line">USING_NS_CC;</div><div class="line"><span class="keyword">class</span> HeroBazzi: <span class="keyword">public</span> Hero&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">createhero</span><span class="params">(CCPoint a,<span class="keyword">float</span> scale,<span class="keyword">int</span> id,<span class="keyword">int</span> type)</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">void</span> HeroBazzi::createhero(CCPoint a,<span class="keyword">float</span> scale,<span class="keyword">int</span> id,<span class="keyword">int</span> type)</div><div class="line">&#123;</div><div class="line">	speed = <span class="number">5</span>;</div><div class="line">	direction = <span class="number">5</span>;</div><div class="line">	bubble_range = <span class="number">3</span>;</div><div class="line">	bubble_num = <span class="number">3</span>;</div><div class="line">	sca = scale;</div><div class="line">	idx = id;</div><div class="line">	islive = <span class="literal">true</span>;</div><div class="line">	isfree = <span class="literal">true</span>;</div><div class="line">	sprite = CCSprite::create();</div><div class="line">	sprite-&gt;setScale(scale);</div><div class="line">	sprite-&gt;setPosition(a);</div><div class="line">	<span class="keyword">if</span> (type == <span class="number">0</span>)</div><div class="line">		AniReader::read(<span class="string">"unit_bazzi.ani"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		AniReader::read(<span class="string">"unit_luxbazzi.ani"</span>);</div><div class="line">	num = AniReader::num;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">list</span>[i][j] = AniReader::<span class="built_in">list</span>[i][j];</div><div class="line">		&#125;</div><div class="line">	<span class="keyword">if</span>  (type == <span class="number">0</span>)</div><div class="line">		texture = CCTextureCache::sharedTextureCache()-&gt;addImage(<span class="string">"image/unit/unit_bazzi.png"</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		texture = CCTextureCache::sharedTextureCache()-&gt;addImage(<span class="string">"image/unit/unit_luxbazzi.png"</span>);</div><div class="line">	animate = CCRepeatForever::create(CCAnimate::create(moveanimation(<span class="number">4</span>)));</div><div class="line">	sprite-&gt;runAction(animate);</div><div class="line">	action=<span class="literal">NULL</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-
+<p>Here is a preview.<br>
+        
+          <p class="article-more-link">
+            <a href="/2013/12/14/using-astyle-to-format-cc-codes/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2013/12/14/using-astyle-to-format-cc-codes/" data-id="citfjepj5000ofzftlagcfwpe" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2013/12/14/using-astyle-to-format-cc-codes/" data-id="citfjoo91000og2cy3n885itr" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2013/12/14/using-astyle-to-format-cc-codes/#disqus_thread" class="article-comment-link">Comments</a>
       

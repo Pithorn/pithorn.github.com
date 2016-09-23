@@ -6,21 +6,18 @@
   <title>Auto convert the base64 code in Abook | Jingbei Li&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Abook is a text-based addressbook program designed to use with mutt mail client.
-There is a chapter about using abook with mutt in the ArchWiki.
-If you want to use Abook instead of aliases, remove the">
+There is a chapter about using abook with mutt in the ArchWiki.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Auto convert the base64 code in Abook">
 <meta property="og:url" content="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/index.html">
 <meta property="og:site_name" content="Jingbei Li's Blog">
 <meta property="og:description" content="Abook is a text-based addressbook program designed to use with mutt mail client.
-There is a chapter about using abook with mutt in the ArchWiki.
-If you want to use Abook instead of aliases, remove the">
-<meta property="og:updated_time" content="2016-09-23T08:59:44.638Z">
+There is a chapter about using abook with mutt in the ArchWiki.">
+<meta property="og:updated_time" content="2016-09-23T09:07:35.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Auto convert the base64 code in Abook">
 <meta name="twitter:description" content="Abook is a text-based addressbook program designed to use with mutt mail client.
-There is a chapter about using abook with mutt in the ArchWiki.
-If you want to use Abook instead of aliases, remove the">
+There is a chapter about using abook with mutt in the ArchWiki.">
 <meta name="twitter:creator" content="@JingbeiLi">
   
     <link rel="alternate" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
@@ -96,7 +93,7 @@ If you want to use Abook instead of aliases, remove the">
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="http://abook.sourceforge.net/" target="_blank" rel="external">Abook</a> is a text-based addressbook program designed to use with <a href="http://www.mutt.org/" target="_blank" rel="external">mutt</a> mail client.</p>
-<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.</p>
+<p>There is a chapter about using abook with mutt in the <a href="https://wiki.archlinux.org/index.php/Mutt#Abook" target="_blank" rel="external">ArchWiki</a>.<br><a id="more"></a></p>
 <p>If you want to use <strong>Abook</strong> instead of aliases, remove the aliases configuration in <code>.muttrc</code> and add this:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set query_command= &quot;abook --mutt-query &apos;%s&apos;&quot;</div><div class="line">macro index,pager  a &quot;&lt;pipe-message&gt;abook --add-email-quiet&lt;return&gt;&quot; &quot;Add this sender to Abook&quot;</div><div class="line">bind editor        &lt;Tab&gt; complete-query</div></pre></td></tr></table></figure>
 <p>But sadly, the command <code>abook --add-email-quiet</code> always gets names like “=?utf-8?B?55m+5ZCI5LuZ5a2Q?=” which is base64 encoded.</p>
@@ -113,7 +110,7 @@ If you want to use Abook instead of aliases, remove the">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjephl0008fzftilbhotjy" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/" data-id="citfjoo870008g2cy7ygotag2" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2014/12/17/auto-convert-the-base64-code-into-utf-8/#disqus_thread" class="article-comment-link">Comments</a>
       

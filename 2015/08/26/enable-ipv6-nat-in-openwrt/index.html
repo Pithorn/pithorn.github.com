@@ -6,21 +6,18 @@
   <title>Openwrt 15.05rc1 HG255D的ipv6支持 | Jingbei Li&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="感谢rjjacky把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。
-首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。
-openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了make menuconfig以外还有很多隐藏的地方要改。经过几次编译，没有一次flash进去能用">
+首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Openwrt 15.05rc1 HG255D的ipv6支持">
 <meta property="og:url" content="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/index.html">
 <meta property="og:site_name" content="Jingbei Li's Blog">
 <meta property="og:description" content="感谢rjjacky把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。
-首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。
-openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了make menuconfig以外还有很多隐藏的地方要改。经过几次编译，没有一次flash进去能用">
-<meta property="og:updated_time" content="2016-09-23T08:59:44.638Z">
+首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。">
+<meta property="og:updated_time" content="2016-09-23T09:07:35.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openwrt 15.05rc1 HG255D的ipv6支持">
 <meta name="twitter:description" content="感谢rjjacky把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。
-首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。
-openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了make menuconfig以外还有很多隐藏的地方要改。经过几次编译，没有一次flash进去能用">
+首先是蛋疼的固件openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。">
 <meta name="twitter:creator" content="@JingbeiLi">
   
     <link rel="alternate" href="/atom.xml" title="Jingbei Li&#39;s Blog" type="application/atom+xml">
@@ -97,6 +94,7 @@ openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个�
       
         <p>感谢<a href="blog.rjjacky.info">rjjacky</a>把他的HG255D转手给我折腾openwrt了。这次折腾的主要目标是ipv6支持。</p>
 <h3 id="首先是蛋疼的固件"><a href="#首先是蛋疼的固件" class="headerlink" title="首先是蛋疼的固件"></a>首先是蛋疼的固件</h3><p>openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。</p>
+<a id="more"></a>
 <p>openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了<code>make menuconfig</code>以外还有很多隐藏的地方要改。<br>经过几次编译，没有一次flash进去能用的。。。放弃。。</p>
 <p>后来从<a href="http://www.right.com.cn/Forum/thread-167159-1-1.html" target="_blank" rel="external">此处</a>下载了一个15.05-rc1带部分ipv6的固件，总算刷进去了。</p>
 <p>这个固件还算不错，wan和wan6直接就获取到ipv6地址了，lan内部能获取到一个由dhcpv6分配的有奇怪prefix的ipv6地址。</p>
@@ -142,7 +140,7 @@ openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/" data-id="citfjephx000bfzftxr65itr4" class="article-share-link">Share</a>
+      <a data-url="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/" data-id="citfjoo8h000bg2cy83olxzn5" class="article-share-link">Share</a>
       
         <a href="http://jingbei.li/2015/08/26/enable-ipv6-nat-in-openwrt/#disqus_thread" class="article-comment-link">Comments</a>
       
