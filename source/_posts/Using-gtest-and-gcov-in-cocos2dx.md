@@ -12,6 +12,7 @@ tags: [gtest, android, cocos2dx]
 后简直雪中送炭．
 
 现把我在自己的项目中的做法记下来：
+<!--more-->
 
 * 切换到UnitTest分支
 * 做git下的proj.android/exteral到cocos2dx/sebomber/proj.android/exteral的软连接

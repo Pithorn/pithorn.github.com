@@ -5,7 +5,7 @@ tags: [ffmpeg,windows,bat,script]
 Well, actually it's a task given by my uncle. So the spirit of this script should be KISS, "Keep It Simple, Stupid".
 
 Instead of GUI, I choose ffmpeg to be the decoder(and the encoder if necessary). Luckily, ffmpeg has a [static windows binary build](http://ffmpeg.zeranoe.com/builds/). A good start!
-
+<!--more-->
 The next part is writing a KISS script for windows. Because I'm not familiar to bat files at all, it took a while before I finally found out a trick to solve a problem about processing the files' name.
 
 The final version of the script looks like the following:

@@ -6,7 +6,7 @@ tags: [linux,ruby,script]
 Most ruby packages are not maintained by the Archlinux repository, I installed them locally then added `~/.gem/ruby/2.1.0/bin` to `$PATH`.
 
 Although the ruby version is `2.1.5`, it uses `2.1.0` as the library version. It feels silly if I change it manually every time, so I have to find a way to check it automatically.
-
+<!--more-->
 Refer to this [post](http://forum.ubuntu.com.cn/viewtopic.php?f=48&t=466400), the output of `ruby -e 'puts $LOAD_PATH'` includes what I need.
 
 ```sh

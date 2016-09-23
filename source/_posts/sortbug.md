@@ -8,6 +8,7 @@ tags: [shell, linux]
 ### bug具体是这样的
 
 建立一个包含多的全角正反小括号的文件，一个一行：
+<!--more-->
 
 ```sh
 $ cat test.txt

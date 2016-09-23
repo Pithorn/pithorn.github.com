@@ -7,6 +7,7 @@ tags: [wine,linux]
 
 Comparing with its main competitor, Xunlei, QQDownload is more easier to handle by wine.
 
+<!--more-->
 Here is a tutorial for running QQDownload 4.8 Beta using wine:
 
 1. Create a new 32-bit wineprefix

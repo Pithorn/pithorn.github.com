@@ -6,6 +6,7 @@ tags: [linux,byobu,rssdrop,script]
 After [delivering all the feeds to Maildirs by rssdrop](../../../../2014/12/29/using-rssdrop-to-read-feeds-in-mutt/), I also need a notification daemon in my byobu shell.
 
 Byobu supports custom script and display the outputs in the bottom bar. And particularly, you can [use colors in byobu script's output](../../../../2014/11/11/show-colors-in-byobu-control-bar/)!
+<!--more-->
 
 ![img](http://7sbplw.com1.z0.glb.clouddn.com/screenshot-20150109_155440.png)
 

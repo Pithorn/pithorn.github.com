@@ -5,6 +5,7 @@ tags: [linux,byobu,tmux,script]
 [Byobu](byobu.co) is a frontend for screen or tmux.
 
 But the custom script sample in the manual page does not working in tmux.
+<!--more-->
 
 ```sh
 #!/bin/sh

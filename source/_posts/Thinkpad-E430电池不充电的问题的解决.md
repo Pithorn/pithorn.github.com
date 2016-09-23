@@ -11,6 +11,7 @@ tags: ['thinkpad','hardware']
 * 换电池
 
 均无效。最后无奈找微信号联想服务(LenovoServices)咨询，给了一个偏方：
+<!--more-->
 
 * 关机
 * 把电池和电源都拔了

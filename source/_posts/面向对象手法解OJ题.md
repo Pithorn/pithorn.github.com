@@ -10,6 +10,7 @@ tags: [c++]
 帮我检查bug的NOI大神看了以后表示“写的太好看了，我都看不懂了”。。
 
 唉。。引用Linus Torvalds大神的一句名言
+<!--more-->
 
 > Talk is cheap. Show me the code.
 

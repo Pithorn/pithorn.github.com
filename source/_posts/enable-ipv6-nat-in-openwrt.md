@@ -9,6 +9,7 @@ tags: [openwrt, ipv6]
 
 openwrt对hg255d的支持至少我从15.05rc2就已经看不到了。。我先尝试自己编译一个。
 
+<!--more-->
 openwrt自己的wiki上的编译guide就好几种。。根本不知道是哪个，并且除了`make menuconfig`以外还有很多隐藏的地方要改。
 经过几次编译，没有一次flash进去能用的。。。放弃。。
 

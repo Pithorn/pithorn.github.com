@@ -11,6 +11,8 @@ rssdrop is a perl script to deliver feeds to Maildirs. The [origin script](http:
 
 The dependencies are `perl-xml-simple`, `perl-date-manip` and `perl-lwp-protocol-https`.
 
+<!--more-->
+
 If you have solved the dependencies, clone my fork and rssdrop just works:
 
 ```sh

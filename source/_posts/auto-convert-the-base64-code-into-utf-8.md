@@ -6,6 +6,7 @@ tags: [abook,linux,mutt,python,script]
 [Abook](http://abook.sourceforge.net/) is a text-based addressbook program designed to use with [mutt](http://www.mutt.org/) mail client.
 
 There is a chapter about using abook with mutt in the [ArchWiki](https://wiki.archlinux.org/index.php/Mutt#Abook).
+<!--more-->
 
 If you want to use __Abook__ instead of aliases, remove the aliases configuration in `.muttrc` and add this:
 

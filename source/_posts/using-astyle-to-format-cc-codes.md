@@ -8,6 +8,7 @@ astyle *.hpp -A7tCSKNLwYFpPHxdk2W2yej
 ```
 
 Here is a preview.
+<!--more-->
 
 ```cpp
 #ifndef __Hero_Bazzi__
